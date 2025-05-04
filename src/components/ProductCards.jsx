@@ -1,11 +1,8 @@
-import React from "react";
-
 const products = [
-  { src: "./src/assets/image 19.png", name: "Video games" },
-  { src: "./src/assets/image 17.png", name: "Beauty Picks" },
-  { src: "./src/assets/image 18.png", name: "Computer and Accessories" },
+  { src: "./src/components/assets/product/vidgame.png", name: "Video games" },
+  { src: "./src/components/assets/product/skin care.png", name: "Beauty Picks" },  { src: "./src/components/assets/product/desktop.png", name: "Computer and Accessories" },
   {
-    src: "./src/assets/image 20.png",
+    src: "./src/components/assets/product/laptop.png",
     name: "Toys and Games",
     recommended: true,
   },

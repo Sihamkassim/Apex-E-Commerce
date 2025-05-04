@@ -1,6 +1,5 @@
-import React from 'react'
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 const swiper= ()=> {
   return (
@@ -8,32 +7,32 @@ const swiper= ()=> {
       spaceBetween={30}
     >
       <SwiperSlide>
-        <img src="./src/assets/image 19.png" alt="" />
+        <img src="./src/assets/headset.png" alt="" />
       </SwiperSlide>
       <SwiperSlide>
-        <img src="./src/assets/image 19.png" alt="" />
+        <img src="./src/assets/headset.png" alt="" />
       </SwiperSlide>
       <SwiperSlide>
-        <img src="./src/assets/image 19.png" alt="" />
+        <img src="./src/assets/headset.png" alt="" />
       </SwiperSlide>
       <SwiperSlide>
-        <img src="./src/assets/image 19.png" alt="" />
+        <img src="./src/assets/headset.png" alt="" />
       </SwiperSlide>
       <SwiperSlide>
-        <img src="./src/assets/image 19.png" alt="" />
+        <img src="./src/assets/headset.png" alt="" />
         Slide 5
       </SwiperSlide>
       <SwiperSlide>
-        <img src="./src/assets/image 19.png" alt="" />S
+        <img src="./src/assets/headset.png" alt="" />S
       </SwiperSlide>
       <SwiperSlide>
-        <img src="./src/assets/image 19.png" alt="" />
+        <img src="./src/assets/headset.png" alt="" />
       </SwiperSlide>
       <SwiperSlide>
-        <img src="./src/assets/image 19.png" alt="" />
+        <img src="./src/assets/headset.png" alt="" />
       </SwiperSlide>
       <SwiperSlide>
-        <img src="./src/assets/image 19.png" alt="" />
+        <img src="./src/assets/headset.png" alt="" />
       </SwiperSlide>
     </Swiper>
   );

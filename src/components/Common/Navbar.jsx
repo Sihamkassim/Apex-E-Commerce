@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import group from "../assets/group.png";
-import logo from "../assets/logo.png";
-import searchIcon from "../assets/search.png";
-import vector from "../assets/vector.png";
+import group from "../assets/icons/group.png";
+import logo from "../assets/icons/logo.png";
+import searchIcon from "../assets/icons/search.png";
+import vector from "../assets/icons/vector.png";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -12,8 +12,8 @@ const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   return (
-    <nav className="bg-white shadow-md">
-      <div className="max-w-7xl mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center">
+    <nav className="sticky top-0 bg-white shadow-md">
+      <div className="max-w-7xl mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center position-sticky ">
         <div className="flex items-center mb-3 md:mb-0 w-full md:w-auto justify-between">
           <Link
             to="/"
