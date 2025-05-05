@@ -1,5 +1,3 @@
-import React from "react";
-import { GrFormNextLink } from "react-icons/gr";
 import { TbPlayerTrackNext } from "react-icons/tb";
 
 function Blog() {
@@ -9,7 +7,7 @@ function Blog() {
         <div className="grid">
           <h1 className="text-wrap font-semibold">Comfy style for her..✨</h1>
           <p>
-            Shop from quickbuy fashion including shoes, clothes, handbags and
+            Shop from Apex and buy fashion including shoes, clothes, handbags and
             much more😊
           </p>
           <a href="/products" className="font-semibold inline-flex items-center gap-1">
@@ -29,7 +27,7 @@ function Blog() {
         <div className="grid">
           <h1 className="font-semibold">Comfy style for her..✨</h1>
           <p>
-            Shop from quickbuy fashion including shoes, clothes, handbags and
+            Shop from Apex fashion including shoes, clothes, handbags and
             much more😊
           </p>
           <a
