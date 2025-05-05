@@ -1,26 +1,53 @@
-import React from 'react'
+import React from "react";
+import { GrFormNextLink } from "react-icons/gr";
+import { TbPlayerTrackNext } from "react-icons/tb";
 
 function Blog() {
   return (
-    <> <div id="first-blog" className="w-25% flex-1">
-            <div>
-              <h1>Comfy style for her.</h1>
-              <p>
-                Shop from quickbuy fashion including shoes, clothes, handbags
-                and much more😊
-              </p>
-            </div>
-            <div className='rounded-2xl'>
-              <img
-                src="./src/assets/Pexels Photo by EVG Kowalievska.png"
-                alt=""
-              />
-            </div>
-          </div>
-          <div id="second-blog"></div>
-        
-       </> 
-  )
+    <>
+      <div id="first-blog" className=" flex bg-[#EDEDED] p-5 rounded-2xl ">
+        <div className="grid">
+          <h1 className="text-wrap font-semibold">Comfy style for her..✨</h1>
+          <p>
+            Shop from quickbuy fashion including shoes, clothes, handbags and
+            much more😊
+          </p>
+          <a href="/products" className="font-semibold inline-flex items-center gap-1">
+            Explore
+            <TbPlayerTrackNext />
+          </a>
+        </div>
+        <div className="rounded-2xl">
+          <img
+            src="./src/components/assets/product/Pexels Photo by EVG Kowalievska.png"
+            alt=""
+            className="pt-4"
+          />
+        </div>
+      </div>
+      <div id="second-blog" className="flex bg-[#EDEDED] mx-4 p-5 rounded-2xl">
+        <div className="grid">
+          <h1 className="font-semibold">Comfy style for her..✨</h1>
+          <p>
+            Shop from quickbuy fashion including shoes, clothes, handbags and
+            much more😊
+          </p>
+          <a
+            href="/products"
+            className="font-semibold inline-flex items-center gap-1"
+          >
+            Explore <TbPlayerTrackNext />
+          </a>
+        </div>
+        <div className="rounded-2xl">
+          <img
+            src="./src/components/assets/product/Pexels P chloe.png"
+            alt=""
+          />
+        </div>
+      </div>
+    </>
+  );
 }
 
 export default Blog;

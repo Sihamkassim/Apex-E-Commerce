@@ -44,7 +44,7 @@ const Products = () => {
       {merchandise.map((merchandise, i) => (
         <div
           key={i}
-          className="bg-[#EDEDED] hover:scale-105 rounded-xl border border-gray-200 shadow-md p-4 hover:shadow-lg transition-all relative"
+          className="w-full bg-[#EDEDED] hover:scale-105 rounded-xl border border-gray-200 shadow-md p-4 hover:shadow-lg transition-all relative"
         >
           {merchandise.suggestion && (
             <span className="absolute top-2 right-2 bg-yellow-400 text-white text-xs font-semibold px-2 py-1 rounded">

@@ -12,45 +12,41 @@ import Blog from "../components/blog";
 
 const Home = () => {
   return (
-    <section>
-      <section className="justify-center flex gap-4 m-w-[96rem]">
+    <section className="pt-17 max-w-screen-xl mx-auto">
+      <section className="justify-center flex max-w-screen-xl ">
         <div
           id="product-display"
-          className="bg-[#EDEDED]  flex py-4 flex-wrap  rounded-2xl my-5 justify-evenly gap-9 items-center px-16"
+          className="bg-[#EDEDED] w-full flex rounded-2xl my-5 justify-evenly items-center px-16"
         >
           <div className="items-center">
             <h1 className="text-4xl  ">Shop Computers & Accessories.</h1>
-            <p className="my-9">
-              Product Decription naguma fayyya galatdbjhfiefhwfiwe
-            </p>
+            <p className="my-9">Product Decription</p>
             <button className="text-white bg-black h-[40px] w-[200px] items-end rounded-2xl gap-3">
               Shop Now
             </button>
           </div>
           <div>
-            <img src="./src/assets/image 2.png" alt="" />
+            <img src="./src/components/assets/product/headset.png" alt="" />
           </div>
         </div>
       </section>
       <h1 className="text-left text-3xl font-semibold">Shop by Categories</h1>
       <h1 className="font-semibold text-right">
-        <a href="/shop">
-          All Categories <FaArrowRight />
+        <a href="/shop" className="inline-flex items-center">
+          All Categories 
+          <FaArrowRight />
         </a>
       </h1>
-      <section
-        id="Recommendation"
-        className=" p-5 rounded-2xl place-items-center"
-      >
+      <section className=" p-1 rounded-2xl max-w-screen-xl items-center">
         <div
           id="product-container"
-          className=" justify-evenly flex  rounded-2xl items-center my-8 py-7 gap-8"
+          className=" justify-evenly flex  rounded-2xl items-center my-8 py-3 gap-8"
         >
           <ProductCards />
         </div>
       </section>
       <h1 className="text-left text-3xl font-semibold">Last Viewed</h1>
-      <section id="Last-viewed" className="place-items-center rounded-2xl p-5">
+      <section id="Last-viewed" className="place-items-center rounded-2xl">
         <div
           id="product-container"
           className=" flex flex-wrap justify-between items-stretch rounded-2xl my-8 py-7 gap-8"
@@ -67,8 +63,10 @@ const Home = () => {
           <TopSellers />
         </div>
       </section>
-      <section id="blog" className="mx-[96rem]">
-        <div className="flex-wrap">{/* <Blog/> */}</div>
+      <section id="blog" className="">
+        <div className="grid sm:grid-cols-2">
+          <Blog />
+        </div>
       </section>
     </section>
   );
