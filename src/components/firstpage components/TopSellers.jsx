@@ -59,7 +59,7 @@ const TopSellers = () => {
               className="max-h-full object-contain"
             />
           </div>
-          <h3 className="text-sm font-medium mb-2 line-clamp-2">
+          <h3 className="text-sm font-medium mb-2 line-clamp-1">
             {product.name}
           </h3>
           <img src={product.review} alt="rating" className="h-4 mb-1" />
