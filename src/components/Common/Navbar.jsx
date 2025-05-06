@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { FaCartArrowDown } from "react-icons/fa";
+import { Link, NavLink } from "react-router-dom";
 import group from "../assets/icons/group.png";
 import logo from "../assets/icons/logo.png";
 import searchIcon from "../assets/icons/search.png";
@@ -23,7 +24,6 @@ const Navbar = () => {
             Apex
           </Link>
 
-          {/* Mobile Menu Button */}
           <div className="flex items-center space-x-4 md:hidden">
             <button onClick={() => setSearchOpen(!searchOpen)} className="p-1">
               <img src={searchIcon} alt="Search" className="h-5 w-5" />
@@ -43,31 +43,50 @@ const Navbar = () => {
           </div>
         </div>
         <div className="hidden md:flex items-center space-x-6 mx-auto">
-          <Link
+          <NavLink
             to="/"
-            className="flex items-center text-gray-700 hover:text-red-700"
+            className={({ isActive }) =>
+              isActive
+                ? "text-red-700 underline"
+                : "text-gray-700 hover:text-red-700"
+            }
           >
-            <img src={vector} alt="Home icon" className="h-4 mr-1" />
-            Home
-          </Link>
-          <Link to="/products" className="text-gray-700 hover:text-red-700">
-            Products
-
-          </Link>
-          <Link to="/about" className="text-gray-700 hover:text-red-700">
+            HOme
+          </NavLink>
+          <NavLink
+            to="/products"
+            className={({ isActive }) =>
+              isActive
+                ? "text-red-700 underline"
+                : "text-gray-700 hover:text-red-700"
+            }
+          >
+            Shop
+          </NavLink>
+          <NavLink
+            to="/about"
+            className={({ isActive }) =>
+              isActive
+                ? "text-red-700 underline"
+                : "text-gray-700 hover:text-red-700"
+            }
+          >
             About
-          </Link>
+          </NavLink>
         </div>
 
         {/* Desktop Search and Account */}
         <div className="hidden md:flex items-center space-x-4">
+          <div className="inline-flex size-6">
+            <FaCartArrowDown />
+          </div>
           {/* Collapsable Search */}
           <div className="relative">
             <button onClick={() => setSearchOpen(!searchOpen)} className="p-1">
               <img src={searchIcon} alt="Search" className="h-5 w-5" />
             </button>
             {searchOpen && (
-              <div className="absolute right-0 top-10 bg-white p-2 shadow-md rounded-md z-10">
+              <div className="absolute right-0 top-5 bg-white p-2 shadow-md rounded-md z-10">
                 <input
                   type="text"
                   placeholder="Search..."
@@ -106,7 +125,6 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile Search */}
         {searchOpen && (
           <div className="w-full md:hidden my-2">
             <input
@@ -135,17 +153,16 @@ const Navbar = () => {
             >
               Products
             </Link>
-            
+
             <Link
               to="/About"
               className="block text-gray-700 hover:text-red-700"
             >
-             About
+              About
             </Link>
           </div>
         )}
 
-        {/* Mobile Account Dropdown */}
         {accountOpen && (
           <div className="md:hidden w-full px-4 pb-2 space-y-2">
             <Link

@@ -1,5 +1,18 @@
+<<<<<<< HEAD
 import { useEffect, useState } from "react";
  const url = "https://ecommerce-backend-tqgh.onrender.com/api/v1/products";
+=======
+const products = [
+  { src: "./src/components/assets/product/vidgame.png", name: "Video games" },
+  { src: "./src/components/assets/product/skin care.png", name: "Beauty Picks" }, 
+   { src: "./src/components/assets/product/desktop.png", name: "Computer and Accessories" },
+  {
+    src: "./src/components/assets/product/laptop.png",
+    name: "Toys and Games",
+    recommended: true,
+  },
+];
+>>>>>>> 1245245d7ff8bcc88e115fb3132985cdbffacb35
 
 const ProductCards = () => {
   

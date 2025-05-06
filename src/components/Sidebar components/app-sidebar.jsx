@@ -1,22 +1,20 @@
-import * as React from "react"
-import { MdOutlineSpaceDashboard } from "react-icons/md";
 import {
   BookOpen,
   Bot,
-  Command,
   Frame,
   LifeBuoy,
   Map,
   PieChart,
   Send,
   Settings2,
-  SquareTerminal,
-} from "lucide-react"
+  SquareTerminal
+} from "lucide-react";
+import group from "../assets/icons/group.png";
 
-import { NavMain } from "@/components/Sidebar components/nav-main"
-import { NavProjects } from "@/components/Sidebar components/nav-projects"
-import { NavSecondary } from "@/components/Sidebar components/nav-secondary"
-import { NavUser } from "@/components/Sidebar components/nav-user"
+import { NavMain } from "@/components/Sidebar components/nav-main";
+import { NavProjects } from "@/components/Sidebar components/nav-projects";
+import { NavSecondary } from "@/components/Sidebar components/nav-secondary";
+import { NavUser } from "@/components/Sidebar components/nav-user";
 import {
   Sidebar,
   SidebarContent,
@@ -25,13 +23,13 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "@/components/ui/sidebar"
+} from "@/components/ui/sidebar";
 
 const data = {
   user: {
     name: "Apex",
     email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
+    avatar: group,
   },
   navMain: [
     {

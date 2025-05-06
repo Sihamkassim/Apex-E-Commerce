@@ -5,6 +5,7 @@ import useRelatedProducts from "../hooks/RelatedProduct";
 const url = "https://ecommerce-backend-tqgh.onrender.com/api/v1/products";
 const ProductDetail = () => {
 
+
 const [data, setData] = useState([]);
     const fetchData = async () => {
       try {
@@ -21,13 +22,17 @@ const [data, setData] = useState([]);
     }, []);
   
   const { id } = useParams();
-  const product = data.find((item) => item.id.toString() === id);
+  /*const product = data.find((item) => item.id.toString() === id);*/
+
+  const { name } = useParams();
+  const product = ListOfProducts.find((item) => item.name.toString() === name);
+
   const relatedProducts = useRelatedProducts(product);
 
   return (
-    <>
-      <div className="flex-wrap h-screen max-w-screen-xl mx-auto mt-10 pt-1 bg-stone-200 rounded-xl shadow-lg">
-        <div className="mx-auto ">
+    
+      <div className="flex h-screen space-x-10 mx-auto mt-10 p-2 bg-stone-200 rounded-xl shadow-lg">
+        <div className="w-1/2 mx-auto">
           <img
             src={relatedProducts.images}
             alt={relatedProducts.name}
@@ -36,6 +41,7 @@ const [data, setData] = useState([]);
           {/* <img src={product.review} alt="rating" className="h-4 mb-1" /> */}
         </div>
         <div className="mx-auto">
+
           <h1 className="text-2xl font-bold mb-2">{relatedProducts.name}</h1>
           {/* <img src={product.} alt="rating" className="h-4 mb-1" /> */}
           <p className="text-gray-600 text-sm mb-1">{relatedProducts.stock}</p>
@@ -50,18 +56,30 @@ const [data, setData] = useState([]);
             <button className="w-52 bg-black text-white py-2 rounded border-card-foreground hover:bg-green-200 hover:text-white transition">
               Buy Now
             </button>
-          </div>
+
+          <h1 className="text-2xl font-bold mb-2">{product.name}</h1>
+          <img src={product.review} alt="rating" className="h-4 mb-1" />
+          <p className="text-gray-600 text-sm mb-1">{product.stock}</p>
+          <p className="text-black font-bold text-lg mb-4">{product.price}</p>
+          <p className="text-gray-700 mb-4">{product.descriptions}</p>
+        <div className="flex space-x-4 mt-4">
+          <button className="w-52  bg-black text-white py-2 rounded hover:bg-gray-800 transition">
+            Add to Cart 🛒
+          </button>
+          <button className="w-52 bg-white text-black py-2 rounded border-card-foreground hover:bg-black hover:text-white transition">
+            Buy Now
+          </button>
+
+        </div>
         </div>
       </div>
 
-      <div className=" items-center grid mt-10 p-4">
+      <div className="mt-10 p-4">
         <h2 className="text-xl font-semibold mb-4">Related Products</h2>
         <div className="grid grid-cols sm:grid-cols-2 lg:grid-cols-5 gap-3 w-fulls">
           {relatedProducts.map((item) => (
-            <div
-              key={item.id}
-              className=" hover:scale-105 rounded-xl border border-gray-200 shadow-md p-4 hover:shadow-lg transition-all relative"
-            >
+            <div key={item.name} className=" hover:scale-105 rounded-xl border border-gray-200 shadow-md p-4 hover:shadow-lg transition-all relative"
+        >
               <img
                 src={item.images}
                 alt={item.name}
@@ -71,18 +89,17 @@ const [data, setData] = useState([]);
                 {item.name}
               </h3>
               <p>{item.price}</p>
-              <Link to={`/products/${item.id}`}>
-                <button className="w-full mt-4 bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition">
-                  View Details
-                </button>
-              </Link>
+              <Link to={`/products/${item.name}`}>
+            <button className="w-full mt-4 bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition">
+              View Details
+            </button>
+          </Link>
             </div>
           ))}
         </div>
       </div>
-    </>
+      </div>
   );
-};
-
+}
 
 export default ProductDetail;

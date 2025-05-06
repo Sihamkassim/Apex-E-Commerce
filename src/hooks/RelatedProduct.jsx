@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import ListOfProducts from "../constants/StaticProducts";
 
 // import ListOfProducts from "../constants/StaticProducts";
 const url = "https://ecommerce-backend-tqgh.onrender.com/api/v1/products";
@@ -22,7 +23,20 @@ const [data, setData] = useState([]);
   //  if (!product) return [];
   return data.filter(
     (item) => item.category === product.category && item.id !== product.id
+  )
+
+const useRelatedProducts = (currentProduct) => {
+  if (!currentProduct || !currentProduct.categoryId) return [];
+  
+
+  const related = ListOfProducts.filter(item => 
+    item.categoryId === currentProduct.categoryId && 
+    item.name !== currentProduct.name
+
   );
+  
+}
+  return related
 };
 
 export default useRelatedProducts;
