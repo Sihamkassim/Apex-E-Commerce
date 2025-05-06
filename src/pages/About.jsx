@@ -8,7 +8,7 @@ const About = () => {
   return (
     <>
       <a href="/AdminPanel">wq</a>
-      
+      <a href="/AdminProduct">Ap</a>
     </>
   );
 };

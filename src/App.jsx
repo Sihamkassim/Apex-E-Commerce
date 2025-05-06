@@ -9,6 +9,7 @@ import Register from "./pages/Register.jsx";
 import AdminPanel from "./pages/Admin.jsx";
 import AdminLayout from "./components/Common/AdminLayout";
 import { AppSidebar } from "./components/Sidebar components/app-sidebar";
+import AdminProduct from "./pages/AdminProduct";
 function App() {
   return (
     <BrowserRouter>
@@ -69,7 +70,14 @@ function App() {
             </AdminLayout>
           }
         />
-       
+        <Route
+          path="/AdminProduct"
+          element={
+            <AdminLayout>
+              <AdminProduct />
+            </AdminLayout>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

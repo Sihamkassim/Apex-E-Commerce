@@ -36,7 +36,7 @@ const data = {
   navMain: [
     {
       title: "Dashboard",
-      url: "#",
+      url: "AdminPanel",
       icon: SquareTerminal,
       isActive: true,
       // items: [
@@ -56,7 +56,7 @@ const data = {
     },
     {
       title: "Product",
-      url: "#",
+      url: "/AdminProduct",
       icon: Bot,
       // items: [
       //   {
@@ -164,13 +164,13 @@ export function AppSidebar({
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
               <a href="/">
-                <div
-                  className="flex aspect-square size-8 items-center justify-center rounded-lg text-sidebar">
-                 
-                <img src="./src/components/assets/icons/Logo.sng" alt="" />
+                <div className="flex aspect-square size-8 items-center justify-center rounded-lg text-sidebar">
+                  <img src="./src/components/assets/icons/Logo.sng" alt="" />
                 </div>
                 <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-semibold  text-red-600">ApexAD</span>
+                  <span className="truncate font-semibold  text-red-600">
+                    ApexAD
+                  </span>
                   <span className="truncate text-xs">Ecommerce</span>
                 </div>
               </a>

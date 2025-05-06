@@ -1,10 +1,27 @@
 import { Link, useParams } from "react-router-dom";
 import ListOfProducts from "../constants/StaticProducts";
+import { useEffect, useState } from "react";
 import useRelatedProducts from "../hooks/RelatedProduct";
-
+const url = "https://ecommerce-backend-tqgh.onrender.com/api/v1/products";
 const ProductDetail = () => {
+
+const [data, setData] = useState([]);
+    const fetchData = async () => {
+      try {
+        const response = await fetch(url);
+        const result = await response.json();
+        console.log(result.data.products);
+        setData(result.data.products);
+      } catch (e) {
+        console.error(e.message);
+      }
+    };
+    useEffect(() => {
+      fetchData();
+    }, []);
+  
   const { id } = useParams();
-  const product = ListOfProducts.find((item) => item.id.toString() === id);
+  const product = data.find((item) => item.id.toString() === id);
   const relatedProducts = useRelatedProducts(product);
 
   return (
@@ -12,18 +29,20 @@ const ProductDetail = () => {
       <div className="flex-wrap h-screen max-w-screen-xl mx-auto mt-10 pt-1 bg-stone-200 rounded-xl shadow-lg">
         <div className="mx-auto ">
           <img
-            src={product.src}
-            alt={product.name}
+            src={relatedProducts.images}
+            alt={relatedProducts.name}
             className="w-full h-96 object-contain mb-4 rounded-md bg-gray-100"
           />
           {/* <img src={product.review} alt="rating" className="h-4 mb-1" /> */}
         </div>
         <div className="mx-auto">
-          <h1 className="text-2xl font-bold mb-2">{product.name}</h1>
-          <img src={product.review} alt="rating" className="h-4 mb-1" />
-          <p className="text-gray-600 text-sm mb-1">{product.stock}</p>
-          <p className="text-black font-bold text-lg mb-4">{product.price}</p>
-          <p className="text-gray-700 mb-4">{product.descriptions}</p>
+          <h1 className="text-2xl font-bold mb-2">{relatedProducts.name}</h1>
+          {/* <img src={product.} alt="rating" className="h-4 mb-1" /> */}
+          <p className="text-gray-600 text-sm mb-1">{relatedProducts.stock}</p>
+          <p className="text-black font-bold text-lg mb-4">
+            {relatedProducts.price}
+          </p>
+          {/* <p className="text-gray-700 mb-4">{relatedProducts.name}</p> */}
           <div className="flex space-x-4 mt-4">
             <button className="w-52  bg-black text-white py-2 rounded hover:bg-green-200 transition">
               Add to Cart 🛒
@@ -44,7 +63,7 @@ const ProductDetail = () => {
               className=" hover:scale-105 rounded-xl border border-gray-200 shadow-md p-4 hover:shadow-lg transition-all relative"
             >
               <img
-                src={item.src}
+                src={item.images}
                 alt={item.name}
                 className="w-full h-48 object-contain mb-3 rounded-md bg-gray-50"
               />
@@ -64,5 +83,6 @@ const ProductDetail = () => {
     </>
   );
 };
+
 
 export default ProductDetail;

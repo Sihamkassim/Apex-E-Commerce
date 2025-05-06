@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import ProductCards from "../components/firstpage components/ProductCards";
 import { FaRegUserCircle } from "react-icons/fa";
@@ -8,8 +8,24 @@ import "swiper/css";
 import Products from "../components/firstpage components/Products";
 import TopSellers from "../components/firstpage components/TopSellers";
 import Blog from "../components/firstpage components/Blog";
+const url = "https://ecommerce-backend-tqgh.onrender.com/api/v1/products";
 
 const Home = () => {
+  const [data, setData] = useState([]);
+  const fetchData = async () => {
+    try {
+      const response = await fetch(url);
+      const result = await response.json();
+      console.log(result.data.products);
+      setData(result.data.products);
+    } catch (e) {
+      console.error(e.message);
+    }
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <section className="pt-17 max-w-screen-xl  mx-auto">
       <section className="justify-center flex max-w-screen-xl ">
@@ -31,8 +47,8 @@ const Home = () => {
       </section>
       <h1 className="text-left text-3xl font-semibold">Shop by Categories</h1>
       <h1 className="font-semibold text-right">
-        <a href="/shop" className="inline-flex items-center">
-          All Categories 
+        <a href="/products" className="inline-flex items-center">
+          All Categories
           <FaArrowRight />
         </a>
       </h1>
@@ -67,6 +83,16 @@ const Home = () => {
           <Blog />
         </div>
       </section>
+      <div className="hiiiiiiiiiiiiiiiiiiiii">
+        {/* {data.map((product,i) => {
+          return (
+            <div className="" key={i}>
+              <img src={product.images} />
+              <p>{product.name}</p>
+            </div>
+          );
+        })} */}
+      </div>
     </section>
   );
 };
