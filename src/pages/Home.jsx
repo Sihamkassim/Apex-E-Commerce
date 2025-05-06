@@ -1,18 +1,17 @@
 import React from "react";
 import { FaMagnifyingGlass } from "react-icons/fa6";
-import ProductCards from "../components/ProductCards";
+import ProductCards from "../components/firstpage components/ProductCards";
 import { FaRegUserCircle } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
-import { Swiper, SwiperSlide } from "swiper/react";
-import swiper from "../components/swiper";
+
 import "swiper/css";
-import Products from "../components/Products";
-import TopSellers from "../components/TopSellers";
-import Blog from "../components/blog";
+import Products from "../components/firstpage components/Products";
+import TopSellers from "../components/firstpage components/TopSellers";
+import Blog from "../components/firstpage components/Blog";
 
 const Home = () => {
   return (
-    <section className="pt-17 max-w-screen-xl mx-auto">
+    <section className="pt-17 max-w-screen-xl  mx-auto">
       <section className="justify-center flex max-w-screen-xl ">
         <div
           id="product-display"

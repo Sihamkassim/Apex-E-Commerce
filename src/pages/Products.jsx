@@ -18,7 +18,7 @@ const Products = () => {
             alt={ListOfProducts.name}
             className="w-full h-48 object-contain mb-3 rounded-md bg-gray-50"
           />
-          <h2 className="text-lg font-semibold line-clamp-2">
+          <h2 className="text-lg font-semibold line-clamp-1">
             {ListOfProducts.name}
           </h2>
           <img src={ListOfProducts.review} alt="rating" className="h-4 mb-1" />
