@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { AppSidebar } from "../Sidebar components/app-sidebar";
 import { SidebarInset, SidebarProvider } from "../ui/sidebar";
 import { SiteHeader } from "./site-header";
-import { Component } from "../Charts/Chart";
+// import { Component } from "../Charts/Chart";
 import { DataTable } from "./data-table";
 
 export const data = [
@@ -620,7 +620,22 @@ export const data = [
   },
 ];
 
+// const url = "https://ecommerce-backend-tqgh.onrender.com/api/v1/products";
 export const ProductSidebar = () => {
+  // const [data, setData] = useState([]);
+  //     const fetchData = async () => {
+  //       try {
+  //         const response = await fetch(url);
+  //         const result = await response.json();
+  //         console.log(result.data.products);
+  //         setData(result.data.products);
+  //       } catch (e) {
+  //         console.error(e.message);
+  //       }
+  //     };
+  //     useEffect(() => {
+  //       fetchData();
+  //     }, []);
   return (
     <div className="[--header-height:calc(theme(spacing.14))]">
       <SidebarProvider className="flex flex-col">

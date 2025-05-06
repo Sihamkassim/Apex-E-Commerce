@@ -51,7 +51,7 @@ const Navbar = () => {
                 : "text-gray-700 hover:text-red-700"
             }
           >
-            HOme
+            Home
           </NavLink>
           <NavLink
             to="/products"

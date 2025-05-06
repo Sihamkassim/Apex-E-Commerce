@@ -8,6 +8,7 @@ import Login from "./pages/Login.jsx";
 import ProductDetails from "./pages/ProductDetails.jsx";
 import Products from "./pages/Products.jsx";
 import Register from "./pages/Register.jsx";
+import AdminProduct from "./pages/AdminProduct";
 function App() {
   return (
     <BrowserRouter>
@@ -19,6 +20,7 @@ function App() {
         <Route path="/register" element={<Layout><Register /></Layout>} />
         <Route path="/about" element={<Layout><About /></Layout>} />
         <Route path="/AdminPanel" element={<AdminLayout><AdminPanel /></AdminLayout>} />
+         <Route path="/AdminProduct" element={<AdminLayout><AdminProduct /></AdminLayout>} />
       </Routes>
     </BrowserRouter>
   );
