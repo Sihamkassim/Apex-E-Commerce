@@ -1,6 +1,7 @@
 const products = [
   { src: "./src/components/assets/product/vidgame.png", name: "Video games" },
-  { src: "./src/components/assets/product/skin care.png", name: "Beauty Picks" },  { src: "./src/components/assets/product/desktop.png", name: "Computer and Accessories" },
+  { src: "./src/components/assets/product/skin care.png", name: "Beauty Picks" }, 
+   { src: "./src/components/assets/product/desktop.png", name: "Computer and Accessories" },
   {
     src: "./src/components/assets/product/laptop.png",
     name: "Toys and Games",

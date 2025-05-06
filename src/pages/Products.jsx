@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import ListOfProducts from "../constants/StaticProducts";
 const Products = () => {
   return (
-    <div className="grid grid-cols sm:grid-cols-2 lg:grid-cols-5 gap-3 w-full">
+    <div className="grid grid-cols sm:grid-cols-2 lg:grid-cols-4 py-3 px-16 gap-3 w-full">
       {ListOfProducts.map((ListOfProducts, i) => (
         <div
           key={i}
@@ -24,7 +24,7 @@ const Products = () => {
           <img src={ListOfProducts.review} alt="rating" className="h-4 mb-1" />
           <p className="text-gray-500 text-xs mb-2">{ListOfProducts.stock}</p>
           <p className="text-black font-bold mt-2">{ListOfProducts.price}</p>
-          <Link to={`/products/${ListOfProducts.id}`}>
+          <Link to={`/products/${ListOfProducts.name}`}>
             <button className="w-full mt-4 bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition">
               View Details
             </button>

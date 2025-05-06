@@ -1,11 +1,17 @@
+// src/hooks/RelatedProduct.js
 import ListOfProducts from "../constants/StaticProducts";
 
-const useRelatedProducts = (product) => {
-  if (!product) return [];
+const useRelatedProducts = (currentProduct) => {
+  if (!currentProduct || !currentProduct.categoryId) return [];
+  
 
-  return ListOfProducts.filter(
-    (item) => item.category === product.category && item.id !== product.id
+  const related = ListOfProducts.filter(item => 
+    item.categoryId === currentProduct.categoryId && 
+    item.name !== currentProduct.name
   );
+  
+  
+  return related
 };
 
 export default useRelatedProducts;
