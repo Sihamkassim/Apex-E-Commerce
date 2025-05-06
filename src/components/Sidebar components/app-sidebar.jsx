@@ -9,7 +9,7 @@ import {
   Settings2,
   SquareTerminal
 } from "lucide-react";
-import vector from "../assets/icons/vector.png";
+import group from "../assets/icons/group.png";
 
 import { NavMain } from "@/components/Sidebar components/nav-main";
 import { NavProjects } from "@/components/Sidebar components/nav-projects";
@@ -29,7 +29,7 @@ const data = {
   user: {
     name: "Apex",
     email: "m@example.com",
-    avatar: vector,
+    avatar: group,
   },
   navMain: [
     {
