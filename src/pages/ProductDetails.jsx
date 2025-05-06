@@ -39,7 +39,7 @@ const ProductDetail = () => {
         <h2 className="text-xl font-semibold mb-4">Related Products</h2>
         <div className="grid grid-cols sm:grid-cols-2 lg:grid-cols-5 gap-3 w-fulls">
           {relatedProducts.map((item) => (
-            <div key={item.id} className=" hover:scale-105 rounded-xl border border-gray-200 shadow-md p-4 hover:shadow-lg transition-all relative"
+            <div key={item.name} className=" hover:scale-105 rounded-xl border border-gray-200 shadow-md p-4 hover:shadow-lg transition-all relative"
         >
               <img
                 src={item.src}
@@ -50,7 +50,7 @@ const ProductDetail = () => {
                 {item.name}
               </h3>
               <p>{item.price}</p>
-              <Link to={`/products/${item.id}`}>
+              <Link to={`/products/${item.name}`}>
             <button className="w-full mt-4 bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition">
               View Details
             </button>

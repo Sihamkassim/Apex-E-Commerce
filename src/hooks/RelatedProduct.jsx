@@ -1,4 +1,4 @@
-// src/hooks/RelatedProduct.js
+
 import ListOfProducts from "../constants/StaticProducts";
 
 const useRelatedProducts = (currentProduct) => {
