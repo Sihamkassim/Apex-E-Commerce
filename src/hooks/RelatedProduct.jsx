@@ -1,42 +1,32 @@
 import { useEffect, useState } from "react";
-import ListOfProducts from "../constants/StaticProducts";
 
-// import ListOfProducts from "../constants/StaticProducts";
 const url = "https://ecommerce-backend-tqgh.onrender.com/api/v1/products";
-const useRelatedProducts = (product) => {
- 
-const [data, setData] = useState([]);
-  const fetchData = async () => {
-    try {
-      const response = await fetch(url);
-      const result = await response.json();
-      console.log(result.data.products);
-      setData(result.data.products);
-    } catch (e) {
-      console.error(e.message);
-    }
-  };
-  useEffect(() => {
-    fetchData();
-  }, []);
-  // useRelatedProducts(product)
-  //  if (!product) return [];
-  return data.filter(
-    (item) => item.category === product.category && item.id !== product.id
-  )
 
 const useRelatedProducts = (currentProduct) => {
-  if (!currentProduct || !currentProduct.categoryId) return [];
-  
+  const [related, setRelated] = useState([]);
 
-  const related = ListOfProducts.filter(item => 
-    item.categoryId === currentProduct.categoryId && 
-    item.name !== currentProduct.name
+  useEffect(() => {
+    const fetchData = async () => {
+      if (!currentProduct) return;
+      try {
+        const response = await fetch(url);
+        const result = await response.json();
+        const allProducts = result.data.products;
 
-  );
-  
-}
-  return related
+        const filtered = allProducts.filter(
+          (item) =>
+            item.category === currentProduct.category && item.id !== currentProduct.id
+        );
+        setRelated(filtered);
+      } catch (e) {
+        console.error(e.message);
+      }
+    };
+
+    fetchData();
+  }, [currentProduct]);
+
+  return related;
 };
 
 export default useRelatedProducts;
