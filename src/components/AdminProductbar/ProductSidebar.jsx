@@ -8,8 +8,8 @@ import { DataTable } from "./data-table";
 export const data = [
   {
     id: 1,
-    header: "Cover page",
-    type: "Cover page",
+    header: "Product 1",
+    type: "Automotive",
     status: "In Process",
     target: "18",
     limit: "5",

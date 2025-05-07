@@ -709,7 +709,7 @@ function TableCellViewer({ item }) {
               <Separator />
             </>
           )}
-          {/* <form className="flex flex-col gap-4">
+           {/* <form className="flex flex-col gap-4">
             <div className="flex flex-col gap-3">
               <Label htmlFor="header">Header</Label>
               <Input id="header" defaultValue={item.header} />
@@ -761,26 +761,26 @@ function TableCellViewer({ item }) {
                 <Input id="target" defaultValue={item.target} />
               </div>
               <div className="flex flex-col gap-3">
-                <Label htmlFor="limit">Limit</Label>
+                <Label htmlFor="limit"></Label>
                 <Input id="limit" defaultValue={item.limit} />
               </div>
             </div>
-            <div className="flex flex-col gap-3"> */}
-          {/* <Label htmlFor="reviewer">Reviewer</Label>
+            <div className="flex flex-col gap-3"> 
+          <Label htmlFor="reviewer">Reviewer</Label>
               <Select defaultValue={item.reviewer}>
                 <SelectTrigger id="reviewer" className="w-full">
                   <SelectValue placeholder="Select a reviewer" />
                 </SelectTrigger>
-                {/* <SelectContent>
+                 <SelectContent>
                   <SelectItem value="Eddie Lake">Eddie Lake</SelectItem>
                   <SelectItem value="Jamik Tashpulatov">
                     Jamik Tashpulatov
                   </SelectItem>
                   <SelectItem value="Emily Whalen">Emily Whalen</SelectItem>
-                </SelectContent> */}
-          {/* </Select> */}
-          {/* </div>
-          </form> */}
+                </SelectContent> 
+         </Select> 
+           </div>
+          </form>  */}
         </div>
         <SheetFooter className="mt-auto flex gap-2 sm:flex-col sm:space-x-0">
           {/* <Button className="w-full">Submit</Button> */}

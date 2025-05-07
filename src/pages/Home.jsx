@@ -81,16 +81,6 @@ const Home = () => {
           <Blog />
         </div>
       </section>
-      <div className="hiiiiiiiiiiiiiiiiiiiii">
-        {/* {data.map((product,i) => {
-          return (
-            <div className="" key={i}>
-              <img src={product.images} />
-              <p>{product.name}</p>
-            </div>
-          );
-        })} */}
-      </div>
     </section>
   );
 };

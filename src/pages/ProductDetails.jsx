@@ -137,11 +137,12 @@ const ProductDetail = () => {
                 <SheetTrigger>Buy Now</SheetTrigger>
                 <SheetContent>
                   <SheetHeader>
-                    <SheetTitle> Let's Procced payment </SheetTitle>
+                    <SheetTitle> Let's Proceed payment </SheetTitle>
                     <SheetDescription>
-                      We are grad u r buying from us
+                      We are glad That you are buying from us
                     </SheetDescription>
                   </SheetHeader>
+                 
                 </SheetContent>
               </Sheet>
             </button>

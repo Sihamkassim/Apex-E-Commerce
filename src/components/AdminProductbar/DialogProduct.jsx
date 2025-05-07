@@ -24,39 +24,42 @@ export function DialogDemo() {
             Add your Products here. Click Add when you're done.
           </DialogDescription>
         </DialogHeader>
-        <div className="grid pt-18">
-          {" "}
-          <div>
-            <label htmlFor="product">Product Name: </label>
-            <input type="text" className="border-black mx-2 w-80 h-18" />
-          </div>
-          <div>
-            <label htmlFor="product">Category: </label>
-            <input type="text" className="w-35 mx-2 mt-9 h-18" />
-          </div>
-          <div>
-            <label htmlFor="product">Price: </label>
-            <input type="text" className="w-35 mx-2 mt-9 h-18" />
-          </div>
-        </div>
+          
+    <h2 class="text-2xl font-bold text-center text-gray-800">Add New Product</h2>
 
-        {/* <div className="grid gap-4 py-4 mx-auto"> */}
-        {/* //   <div className="grid grid-cols-4 items-center gap-4">
-        //     <Label htmlFor="name" className="text-right">
-        //       Product
-        //     </Label>
-            
-        //     <Input id="name" value="Pedro Duarte" className="col-span-3" />
-        //   </div>
-        //   <div className="grid grid-cols-4 items-center gap-4">
-        //     <Label htmlFor="username" className="text-right">
-        //       Username
-        //     </Label>
-        //     <Input id="username" value="@peduarte" className="col-span-3" />
-        //   </div> */}
-        {/* </div> */}
+    <div>
+      <label for="productName" class="block mb-1 font-medium text-gray-700">Product Name</label>
+      <input type="text" id="productName" name="productName" required
+             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+    </div>
+
+    <div>
+      <label for="category" class="block mb-1 font-medium text-gray-700">Category</label>
+      <select  name="category" required
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <option value="">Select Category </option>
+        <option value="Electronics">Electronics</option>
+        <option value="Clothing">Clothing</option>
+        <option value="Books">Books</option>
+        <option value="Home">Automotive</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="stock" class="block mb-1 font-medium text-gray-700">Stock</label>
+      <input type="number"  name="stock" min="0" required
+             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+    </div>
+
+    <div>
+      <label for="price" className="block mb-1 font-medium text-gray-700">Price ($)</label>
+      <input type="number"  name="price" step="0.01" min="0" required
+             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+    </div>
+
+    
         <DialogFooter>
-          <Button type="submit">Add</Button>
+          <Button  type="submit">Add</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>
