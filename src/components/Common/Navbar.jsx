@@ -13,7 +13,7 @@ const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   return (
-    <nav className="sticky top-0 bg-white shadow-md z-20">
+    <nav className="sticky py-0 px-16 top-0 bg-white shadow-md z-20">
       <div className="max-w-7xl mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center position-sticky ">
         <div className="flex items-center mb-3 md:mb-0 w-full md:w-auto justify-between">
           <Link

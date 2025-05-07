@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { FaMagnifyingGlass } from "react-icons/fa6";
-import ProductCards from "../components/firstpage components/ProductCards";
-import { FaRegUserCircle } from "react-icons/fa";
+import { useEffect, useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
+import ProductCards from "../components/firstpage components/ProductCards";
 
 import "swiper/css";
+import Blog from "../components/firstpage components/Blog";
 import Products from "../components/firstpage components/Products";
 import TopSellers from "../components/firstpage components/TopSellers";
-import Blog from "../components/firstpage components/Blog";
 const url = "https://ecommerce-backend-tqgh.onrender.com/api/v1/products";
 
 const Home = () => {
@@ -31,7 +29,7 @@ const Home = () => {
       <section className="justify-center flex max-w-screen-xl ">
         <div
           id="product-display"
-          className="bg-[#EDEDED] w-full flex rounded-2xl my-5 justify-evenly items-center px-16"
+          className="bg-[#EDEDED] w-full min-h-[450px] flex rounded-2xl my-5 justify-evenly items-center px-16"
         >
           <div className="items-center">
             <h1 className="text-4xl  ">Shop Computers & Accessories.</h1>

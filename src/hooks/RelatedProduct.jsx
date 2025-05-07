@@ -15,7 +15,7 @@ const useRelatedProducts = (currentProduct) => {
 
         const filtered = allProducts.filter(
           (item) =>
-            item.category === currentProduct.category && item.id !== currentProduct.id
+            item.categoryId=== currentProduct.categoryId && item.name !== currentProduct.name
         );
         setRelated(filtered);
       } catch (e) {
