@@ -11,6 +11,7 @@ const Urll =
 const url = "https://ecommerce-backend-tqgh.onrender.com/api/v1/products";
 
 const Products = () => {
+
   const [data, setData] = useState([]);
   const [activeCategory, setActiveCategory] = useState("All products");
   const [allproductOpen, setallproductOpen] = useState(true);
