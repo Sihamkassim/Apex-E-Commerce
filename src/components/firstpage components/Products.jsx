@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-
+import { Link } from "react-router-dom";
 
 const Products = () => {
   const url = "https://ecommerce-backend-tqgh.onrender.com/api/v1/products";
@@ -43,9 +43,11 @@ const Products = () => {
           {/* <img src={merchandise.review} alt="rating" className="h-4 mb-1" /> */}
           <p className="text-gray-500 text-xs mb-2">{merchandise.stock}</p>
           <p className="text-black font-bold mt-2">${merchandise.price}</p>
-          <button className="w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition">
-            View Details
-          </button>
+          <Link to={`/products/${merchandise.name}`}>
+                          <button className="w-full mt-4 bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition">
+                            View Details
+                          </button>
+                        </Link>
         </div>
       ))}
     </div>

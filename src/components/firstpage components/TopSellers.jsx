@@ -40,8 +40,8 @@
 // ];
 
 import { useEffect, useState } from "react";
+import starr from "../assets/star.png";
 const url = "https://ecommerce-backend-tqgh.onrender.com/api/v1/products";
-  
 const TopSellers = () => {
   
   
@@ -81,7 +81,7 @@ const TopSellers = () => {
           <h3 className="text-sm font-medium mb-2 line-clamp-1">
             {product.name}
           </h3>
-          <img src={product.review} alt="rating" className="h-4 mb-1" />
+          <img src={starr} alt="rating" className="h-4 mb-1" />
           <p className="text-gray-500 text-xs mb-2">{product.stock}</p>
           <p className="text-lg font-bold text-black">${product.price}</p>
         </div>
