@@ -6,24 +6,26 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { useToast } from "@/hooks/use-toast";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import star from "../components/assets/star.png";
-import useRelatedProducts from "../hooks/RelatedProduct";
 
+import useRelatedProducts from "../hooks/RelatedProduct";
+const productsUrl =
+  "https://ecommerce-backend-tqgh.onrender.com/api/v1/products";
 const ProductDetail = () => {
   const { name } = useParams();
   const [products, setProducts] = useState([]);
   const [product, setProduct] = useState(null);
   const [reviews, setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const { toast } = useToast();
 
   const fetchData = async () => {
     try {
       setIsLoading(true);
-      const response = await fetch(
-        "https://ecommerce-backend-tqgh.onrender.com/api/v1/products"
-      );
+      const response = await fetch(productsUrl);
       if (!response.ok) throw new Error("Failed to fetch products");
       const result = await response.json();
       setProducts(result.data.products);
@@ -68,6 +70,11 @@ const ProductDetail = () => {
       }
     }
   }, [products, name]);
+  const handleAddToCart = () => {
+    toast({
+      description: "Item added to cart 🛒",
+    });
+  };
 
   const relatedProducts = useRelatedProducts(product);
 
@@ -80,32 +87,32 @@ const ProductDetail = () => {
 
   return (
     <>
-      <div className="max-w-6xl mx-auto px-4 pt-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6">
         <Link
           to="/products"
-          className="inline-block mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300 text-black rounded transition"
+          className="inline-block mb-6 px-4 py-2 bg-gray-200 hover:bg-gray-300 text-black rounded transition text-sm sm:text-base"
         >
           Back to Products
         </Link>
       </div>
 
-      <div className="max-w-6xl mx-auto bg-white shadow-xl rounded-xl overflow-hidden flex flex-wrap md:flex-nowrap gap-8 p-6">
+      <div className="max-w-6xl mx-auto bg-white shadow-xl rounded-xl overflow-hidden flex flex-col md:flex-row gap-6 p-4 sm:p-6">
         <div className="w-full md:w-1/2">
           <img
             src={product.images}
             alt={product.name}
-            className="w-full h-96 object-contain mb-4 rounded-md bg-gray-100"
+            className="w-full h-64 sm:h-96 object-contain mb-4 rounded-md bg-gray-100"
           />
         </div>
         <div className="w-full md:w-1/2">
-          <h1 className="text-2xl font-bold mb-2">{product.name}</h1>
+          <h1 className="text-xl sm:text-2xl font-bold mb-2">{product.name}</h1>
           <img src={star} alt="rating" className="h-4 mb-1" />
-          <p className="text-gray-600 text-sm mb-1">{product.stock}</p>
+          <p className="text-gray-600 text-xs sm:text-sm mb-2">{product.stock}</p>
           <p className="text-black font-bold text-lg mb-4">${product.price}</p>
-          <p className="text-gray-700 mb-4">{product.description}</p>
+          <p className="text-gray-700 text-sm sm:text-base mb-6">{product.description}</p>
 
           <div className="mb-6">
-            <h3 className="text-lg font-semibold mb-2">Customer Reviews</h3>
+            <h3 className="text-base sm:text-lg font-semibold mb-3">Customer Reviews</h3>
             {reviews.length > 0 ? (
               <div className="space-y-3">
                 {reviews.map((review) => (
@@ -129,7 +136,10 @@ const ProductDetail = () => {
           </div>
 
           <div className="flex space-x-4 mt-4">
-            <button className="w-52 bg-black text-white py-2 rounded hover:bg-gray-800 transition">
+          <button
+              className="w-full sm:w-52 bg-black text-white py-2 rounded hover:bg-gray-800 transition text-sm sm:text-base"
+              onClick={handleAddToCart}
+            >
               Add to Cart 🛒
             </button>
             <button className="w-52 bg-white text-black py-2 rounded border hover:bg-black hover:text-white transition">
@@ -150,9 +160,9 @@ const ProductDetail = () => {
         </div>
       </div>
 
-      <div className="mt-10 p-6 max-w-6xl mx-auto">
-        <h2 className="text-xl font-semibold mb-4">Related Products</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 w-full">
+      <div className="mt-10 px-4 sm:px-6 max-w-6xl mx-auto">
+        <h2 className="text-lg sm:text-xl font-semibold mb-4">Related Products</h2>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 w-full">
           {Array.isArray(relatedProducts) &&
             relatedProducts.map((item) => (
               <div
@@ -164,7 +174,7 @@ const ProductDetail = () => {
                   alt={item.name}
                   className="w-full h-48 object-contain mb-3 rounded-md bg-gray-50"
                 />
-                <h3 className="text-lg font-semibold line-clamp-2">
+                <h3 className="text-lg sm:text-lg font-semibold line-clamp-2">
                   {item.name}
                 </h3>
                 <p>${item.price}</p>

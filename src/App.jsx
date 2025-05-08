@@ -3,12 +3,13 @@ import AdminLayout from "./components/Common/AdminLayout";
 import Layout from "./components/Common/Layout";
 import About from "./pages/About.jsx";
 import AdminPanel from "./pages/Admin.jsx";
+import AdminProduct from "./pages/AdminProduct";
+
 import Home from "./pages/Home";
 import Login from "./pages/Login.jsx";
 import ProductDetails from "./pages/ProductDetails.jsx";
 import Products from "./pages/Products.jsx";
 import Register from "./pages/Register.jsx";
-import AdminProduct from "./pages/AdminProduct";
 function App() {
   return (
     <BrowserRouter>
@@ -19,6 +20,8 @@ function App() {
         <Route path="/login" element={<Layout><Login /></Layout>} />
         <Route path="/register" element={<Layout><Register /></Layout>} />
         <Route path="/about" element={<Layout><About /></Layout>} />
+    
+
         <Route path="/AdminPanel" element={<AdminLayout><AdminPanel /></AdminLayout>} />
          <Route path="/AdminProduct" element={<AdminLayout><AdminProduct /></AdminLayout>} />
       </Routes>
