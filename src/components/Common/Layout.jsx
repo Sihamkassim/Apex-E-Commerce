@@ -1,3 +1,4 @@
+import { Toaster } from "@/components/ui/toaster";
 import Footer from './Footer';
 import Navbar from './Navbar';
 
@@ -6,6 +7,8 @@ const Layout = ({ children }) => {
     <>
       <Navbar />
       <main className="min-h-screen">{children}</main>
+      <Toaster />
+      {/* Footer is not sticky */}
       <Footer />
     </>
   );

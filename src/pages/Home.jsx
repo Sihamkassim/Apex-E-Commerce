@@ -25,7 +25,7 @@ const Home = () => {
   }, []);
 
   return (
-    <section className="pt-17 max-w-screen-xl  mx-auto">
+    <section className="pt-17 px-7 max-w-screen-xl  mx-auto">
       <section className="justify-center flex max-w-screen-xl ">
         <div
           id="product-display"

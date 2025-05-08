@@ -77,15 +77,15 @@ const Products = () => {
   }, [activeCategory]);
 
   return (
-    <div className="relative w-full py-3 px-6 md:px-16 min-h-screen bg-white">
-      <img src={heroImg} alt="" className="w-full rounded-3xl h-[500px] object-cover" />
+    <div className="relative w-full py-3 px-4 sm:px-6 md:px-16 min-h-screen bg-white">
+      <img src={heroImg} alt="" className="w-full rounded-2xl sm:rounded-3xl h-[300px] sm:h-[400px] md:h-[500px] object-cover" />
       
-      <div className="relative z-10 -mt-12 bg-white p-6 rounded-3xl shadow-lg w-11/12 mx-auto">
-        <h1 className="text-6xl text-center font-bold mb-8">Shop</h1>
-        <div className="flex flex-col md:flex-row gap-6">
+      <div className="relative z-10 -mt-8 sm:-mt-12 bg-white p-4 sm:p-6 rounded-2xl shadow-lg w-full sm:w-11/12 mx-auto">
+        <h1 className="text-3xl sm:text-4xl md:text-6xl text-center font-bold mb-6 sm:mb-8">Shop</h1>
+        <div className="flex flex-col md:flex-row gap-4 sm:gap-6">
           {/* Sidebar */}
           <div className="w-full md:w-1/5">
-            <h2 className="text-xl font-bold mb-6">Category</h2>
+            <h2 className="text-lg sm:text-xl mb-4 sm:mb-6 font-bold ">Category</h2>
             <button
               onClick={() => setallproductOpen(!allproductOpen)}
               className={`inline-flex justify-between items-center p-2 w-full text-left font-semibold ${
@@ -93,7 +93,7 @@ const Products = () => {
               }`}
             >
               <span><FaFolder className="inline mr-2" />Products</span>
-              <FaAngleDoubleDown className={`transition-transform ${allproductOpen ? 'rotate-0' : '-rotate-90'}`} />
+              <FaAngleDoubleDown className={`transition-transform ${allproductOpen ? 'rotate-0' : '-rotate-180'}`} />
             </button>
             
             {allproductOpen && (
@@ -129,12 +129,12 @@ const Products = () => {
               </div>
             ) : (
               <>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                   {currentProducts.length > 0 ? (
                     currentProducts.map((product, i) => (
                       <div
                         key={i}
-                        className="bg-[#F7F7F7] rounded-xl shadow-md p-4 hover:shadow-lg transition-all relative"
+                        className="bg-[#F7F7F7] rounded-xl shadow-md p-3 sm:p-4 hover:shadow-lg transition-all relative"
                       >
                         {product.price < 15.0 && (
                           <span className="absolute top-2 right-2 bg-yellow-400 text-white text-xs font-semibold px-2 py-1 rounded">
@@ -158,7 +158,7 @@ const Products = () => {
                       </div>
                     ))
                   ) : (
-                    <div className="col-span-full text-center py-10">
+                    <div className="col-span-full text-center py-8 sm:py-10">
                       <p className="text-lg">No products found in this category</p>
                     </div>
                   )}
