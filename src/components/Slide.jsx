@@ -33,7 +33,7 @@ export function CarouselPlugin() {
   }, []);
 
   const plugin = React.useRef(
-    Autoplay({ delay: 1000, stopOnInteraction: false })
+    Autoplay({ delay: 8000, stopOnInteraction: false })
   );
 
   return (
@@ -43,14 +43,14 @@ export function CarouselPlugin() {
       // onMouseEnter={plugin.current.stop}
       // onMouseLeave={plugin.current.reset}
     >
-      <CarouselContent>
+      <CarouselContent className='items-stretch'>
         {data.map((_, index) => (
           <CarouselItem key={index}>
             <div className="p-1">
-              <Card>
-                <div className='w-full items-stretch'>
+              <Card className=''>
+                <div className='w-full items-stretch h-54px'>
                  
-                  <img src={_.images} alt="" />
+                  <img src={_.images} alt="" className="rounded-2xl"/>
                 </div>
               </Card>
             </div>

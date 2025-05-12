@@ -40,8 +40,8 @@ export function LastView() {
       <CarouselContent>
         {data.map((_, index) => (
           <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-            <div className="p-1">
-              <Card>
+            <div className="h-full ">
+              <Card className="h-full flex  flex-col">
                 {/* <CardContent className="flex aspect-square items-center justify-center p-6"> */}
                 <>
                   {_.price < 19.00 ? (
@@ -54,7 +54,7 @@ export function LastView() {
                   <img
                       src={_.images}
                       alt={_.name}
-                      className="  w-full object-contain  "
+                      className=" h-full rounded-2xl "
                     />
                  
                  
@@ -67,7 +67,7 @@ export function LastView() {
                   </p>
                   <p className="text-black px-3 font-bold mt-2">${_.price}</p>
                   <Link to={`/products/${_.name}`}>
-                    <button className="w-full mt-4 pt-3  bg-black text-white py-2 my-2 rounded-lg hover:bg-gray-800 transition">
+                    <button className="w-full mt-4 pt-3  bg-black text-white py-1 my-1 rounded-lg hover:bg-gray-800 transition">
                       View Details
                     </button>
                   </Link>

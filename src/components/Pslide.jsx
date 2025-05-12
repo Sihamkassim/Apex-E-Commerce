@@ -40,8 +40,8 @@ export function CarouselSize() {
       <CarouselContent>
         {data.map((_, index) => (
           <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 ">
-            <div className="p-1">
-              <Card>
+            <div className="p-1 h-full">
+              <Card className="h-full flex flex-col hover:transition-transform duration-300 transform hover:scale-110">
                 {/* <CardContent className="flex aspect-square items-center justify-center p-6"> */}
                 <>
                   {_.price < 15.0 ? (
@@ -55,7 +55,7 @@ export function CarouselSize() {
                   <img
                     src={_.images}
                     alt={_.name}
-                    className="  object-contain   bg-gray-50"
+                    className="  object-contain h-full rounded-sm bg-gray-50"
                   />
 
                   <h2 className="text-lg px-3 py-3 font-semibold line-clamp-1">
@@ -77,7 +77,6 @@ export function CarouselSize() {
             </div>
           </CarouselItem>
         ))}
-       
       </CarouselContent>
       <CarouselPrevious />
       <CarouselNext />

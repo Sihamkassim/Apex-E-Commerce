@@ -1,19 +1,15 @@
-import React from "react";
 import { SiteHeader } from "@/components/Sidebar components/site-header";
 
 import { AppSidebar } from "@/components/Sidebar components/app-sidebar";
 
+import { BChart } from "@/components/Charts/BarCharts";
+import { Component } from "@/components/Charts/Chart";
+import { PieLabel } from "@/components/Charts/PieLabel";
 import {
   SidebarInset,
-  SidebarProvider,
-  SidebarTrigger,
+  SidebarProvider
 } from "@/components/ui/sidebar";
-import { Component } from "@/components/Charts/Chart";
-import { BChart } from "@/components/Charts/BarCharts";
 import { PChart } from "../components/Charts/PieChart";
-import { PieLabel } from "@/components/Charts/PieLabel";
-import { DialogDemo } from "@/components/AdminProductbar/DialogProduct";
-import { ProductSidebar } from "@/components/AdminProductbar/ProductSidebar";
 import { TableDemo } from "@/components/Table";
 
 const Admin = () => {
@@ -23,7 +19,7 @@ const Admin = () => {
         <SiteHeader />
         <div className=" flex px-20 py-6 ">
           <AppSidebar />
-          <SidebarInset className='px-20'>
+          <SidebarInset className='px-16'>
             <div className="flex flex-col gap-4 py-9">
               <div className="grid auto-rows-min gap-4  md:grid-cols-3">
                 <PieLabel className='p-' />
