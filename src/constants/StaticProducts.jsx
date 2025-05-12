@@ -10,7 +10,7 @@ import shoeBW from "../components/assets/product/shoeBW.png";
 import shoeW from "../components/assets/product/shoeW.png";
 import shoeWb from "../components/assets/product/shoeWB.png";
 
-// Create a category map similar to your backend
+
 const categoryMap = new Map([
   ["Electronics", 1],
   ["Clothing", 2],

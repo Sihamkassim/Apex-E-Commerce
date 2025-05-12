@@ -1,19 +1,15 @@
-import React from "react";
 import { SiteHeader } from "@/components/Sidebar components/site-header";
 
 import { AppSidebar } from "@/components/Sidebar components/app-sidebar";
 
+import { BChart } from "@/components/Charts/BarCharts";
+import { Component } from "@/components/Charts/Chart";
+import { PieLabel } from "@/components/Charts/PieLabel";
 import {
   SidebarInset,
-  SidebarProvider,
-  SidebarTrigger,
+  SidebarProvider
 } from "@/components/ui/sidebar";
-import { Component } from "@/components/Charts/Chart";
-import { BChart } from "@/components/Charts/BarCharts";
 import { PChart } from "../components/Charts/PieChart";
-import { PieLabel } from "@/components/Charts/PieLabel";
-import { DialogDemo } from "@/components/AdminProductbar/DialogProduct";
-import { ProductSidebar } from "@/components/AdminProductbar/ProductSidebar";
 
 const AdminPanel = () => {
   return (
