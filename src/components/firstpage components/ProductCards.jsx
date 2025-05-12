@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
- const url = "https://ecommerce-backend-tqgh.onrender.com/api/v1/products";
+const url = "https://ecommerce-backend-tqgh.onrender.com/api/v1/products";
 
 const ProductCards = () => {
   
@@ -18,9 +18,12 @@ const ProductCards = () => {
       fetchData();
     }, []);
   
+  // Slice the data array to display only 4 products
+  const limitedProducts = data.slice(0, 4);
+  
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 ">
-      {data.map((products, i) => (
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      {limitedProducts.map((products, i) => (
         <div
           key={i}
           className="bg-white border border-gray-200 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-transform hover:scale-105 relative"

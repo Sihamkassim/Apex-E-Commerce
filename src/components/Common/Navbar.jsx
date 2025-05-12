@@ -12,7 +12,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet";
+} from "@/components/ui/sheets";
 import { useToast } from "@/hooks/use-toast";
 import { useMediaQuery } from "@/lib/utils";
 import { Heart, ShoppingCart, X } from "lucide-react";

@@ -101,7 +101,12 @@ const Home = () => {
       {/* Last Viewed Section */}
       <section className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-12 bg-gray-50">
         <div className="max-w-screen-xl mx-auto">
-          <h2 className="text-3xl font-semibold mb-8">Last Viewed</h2>
+          <div className="flex flex-col sm:flex-row justify-between items-center mb-8">
+            <h2 className="text-3xl font-semibold mb-4 sm:mb-0">Last Viewed</h2>
+            <a href="/products" className="text-black hover:text-gray-700 flex items-center gap-2 transition-colors group">
+              View All <FaArrowRight className="text-xs group-hover:translate-x-1 transition-transform" />
+            </a>
+          </div>
           <div className="bg-white p-6 rounded-xl shadow-sm">
             <Products />
           </div>
@@ -110,7 +115,12 @@ const Home = () => {
 
       {/* Blog Section */}
       <section className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h2 className="text-3xl font-semibold mb-8">Latest Articles</h2>
+        <div className="flex flex-col sm:flex-row justify-between items-center mb-8">
+          <h2 className="text-3xl font-semibold mb-4 sm:mb-0">Latest Articles</h2>
+          <a href="/about" className="text-black hover:text-gray-700 flex items-center gap-2 transition-colors group">
+            All Articles <FaArrowRight className="text-xs group-hover:translate-x-1 transition-transform" />
+          </a>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <Blog />
         </div>

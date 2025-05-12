@@ -20,9 +20,12 @@ const Products = () => {
     useEffect(() => {
       fetchData();
     }, []);
+  // Slice the data array to display only 4 products
+  const limitedProducts = data.slice(0, 4);
+  
   return (
-    <div className="grid grid-cols sm:grid-cols-2 lg:grid-cols-5 gap-3 w-full">
-      {data.map((merchandise, i) => (
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-full">
+      {limitedProducts.map((merchandise, i) => (
         <div
           key={i}
           className=" bg-[#EDEDED] hover:scale-105 rounded-xl border border-gray-200 shadow-md p-4 hover:shadow-lg transition-all relative"
