@@ -24,11 +24,12 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
+import { useState } from "react";
 
 const data = {
   user: {
     name: "Apex",
-    email: "m@example.com",
+    email: "Apex@example.com",
     avatar: group,
   },
   navMain: [
@@ -148,16 +149,22 @@ const data = {
     },
   ],
 }
-
+const handleclick=()=>{ className='bg-red-500'}
 export function AppSidebar({
   ...props
 }) {
+  const [isSelected, setIsSelected] = useState(0);
+  const handleClick = (index) => {
+    setActiveSecondary(index);
+  };
+  
   return (
     <Sidebar
       className="top-[--header-height] !h-[calc(100svh-var(--header-height))]"
       {...props}
     >
       <SidebarHeader>
+        <NavUser user={data.user} />
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
@@ -177,13 +184,18 @@ export function AppSidebar({
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={data.navMain} />
-        <NavProjects projects={data.projects} />
-        <NavSecondary items={data.navSecondary} className="mt-auto" />
+        <NavMain items={data.navMain} isSelected={isSelected} setIsSelected={setIsSelected}/>
+        {/* <NavProjects projects={data.projects} />
+        <NavSecondary
+          items={data.navSecondary}
+          
+          onClick={handleClick}
+          className="mt-auto"
+        /> */}
       </SidebarContent>
-      <SidebarFooter>
+      {/* <SidebarFooter>
         <NavUser user={data.user} />
-      </SidebarFooter>
+      </SidebarFooter> */}
     </Sidebar>
   );
 }

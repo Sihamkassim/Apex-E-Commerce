@@ -14,27 +14,29 @@ import { PChart } from "../components/Charts/PieChart";
 import { PieLabel } from "@/components/Charts/PieLabel";
 import { DialogDemo } from "@/components/AdminProductbar/DialogProduct";
 import { ProductSidebar } from "@/components/AdminProductbar/ProductSidebar";
+import { TableDemo } from "@/components/Table";
 
-const AdminPanel = () => {
+const Admin = () => {
   return (
     <div className="[--header-height:calc(theme(spacing.14))]">
-      <SidebarProvider className="flex flex-col">
+      <SidebarProvider className="flex px-50 flex-col">
         <SiteHeader />
-        <div className=" flex flex-1">
+        <div className=" flex px-20 py-6 ">
           <AppSidebar />
-          <SidebarInset>
-            <div className="flex flex-col gap-4 p-4">
-              {/* <ProductSidebar /> */}
-              <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-                <PieLabel />
+          <SidebarInset className='px-20'>
+            <div className="flex flex-col gap-4 py-9">
+              <div className="grid auto-rows-min gap-4  md:grid-cols-3">
+                <PieLabel className='p-' />
 
                 <BChart />
 
                 <PChart />
               </div>
-              <Component />
-              {/* <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min" /> */}
+
+              <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min" />
             </div>
+            {/* <BChart /> */}
+            <TableDemo/>
           </SidebarInset>
         </div>
       </SidebarProvider>
@@ -42,4 +44,4 @@ const AdminPanel = () => {
   );
 };
 
-export default AdminPanel;
+export default Admin;

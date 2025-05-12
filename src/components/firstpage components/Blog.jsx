@@ -3,7 +3,7 @@ import { TbPlayerTrackNext } from "react-icons/tb";
 function Blog() {
   return (
     <>
-      <div id="first-blog" className=" flex bg-[#EDEDED] p-5 rounded-2xl ">
+      <div id="first-blog" className=" flex bg-[#EDEDED] p-5  rounded-2xl ">
         <div className="grid">
           <h1 className="text-wrap font-semibold">Comfy style for her..✨</h1>
           <p>
@@ -23,7 +23,7 @@ function Blog() {
           />
         </div>
       </div>
-      <div id="second-blog" className="flex bg-[#EDEDED] mx-4 p-5 rounded-2xl">
+      <div id="second-blog" className=" bg-[#EDEDED] flex p-5 rounded-2xl">
         <div className="grid">
           <h1 className="font-semibold">Comfy style for her..✨</h1>
           <p>
