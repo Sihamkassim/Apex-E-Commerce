@@ -87,7 +87,7 @@ export function CarouselSize() {
                   <img
                     src={data[index % data.length]?.images || ""}
                     alt={category.name}
-                    className="w-full h-32 object-contain relative z-10"
+                    className="w-full h-32 object-cover rounded-xl relative z-10"
                   />
                 </div>
                 <div className="p-3 text-center bg-white/80 backdrop-blur-sm border-t border-gray-100">

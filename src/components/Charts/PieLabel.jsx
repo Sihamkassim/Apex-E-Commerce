@@ -54,7 +54,7 @@ const chartConfig = {
 export function PieLabel() {
   return (
     <Card className="flex flex-col">
-      <CardHeader className="items-center pb-0">
+      <CardHeader className="items-center p-6">
         <CardTitle>E-commerce web - Traffic</CardTitle>
         <CardDescription>April - May 2024</CardDescription>
       </CardHeader>

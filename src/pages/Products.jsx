@@ -77,7 +77,7 @@ const Products = () => {
   }, [activeCategory]);
 
   return (
-    <div className="relative w-full py-3 px-4 sm:px-6 md:px-16 min-h-screen bg-white">
+    <div className="relative w-full py-3 sm:px-6 md:px-16 min-h-screen bg-white">
       <img src={heroImg} alt="" className="w-full rounded-2xl sm:rounded-3xl h-[300px] sm:h-[400px] md:h-[500px] object-cover" />
       
       <div className="relative z-10 -mt-8 sm:-mt-12 bg-white p-4 sm:p-6 rounded-2xl shadow-lg w-full sm:w-11/12 mx-auto">
@@ -144,7 +144,7 @@ const Products = () => {
                         <img
                           src={product.images}
                           alt={product.name}
-                          className="w-full h-40 object-contain mb-3 rounded-md bg-white"
+                          className="w-full h-40 object-cover mb-3 rounded-md bg-white"
                         />
                         <h2 className="text-md font-semibold line-clamp-1">
                           {product.name}

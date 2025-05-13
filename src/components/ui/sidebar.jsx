@@ -131,7 +131,7 @@ const Sidebar = React.forwardRef((
   {
     side = "left",
     variant = "sidebar",
-    collapsible = "offcanvas",
+    collapsible = "canvas",
     className,
     children,
     ...props
@@ -140,42 +140,42 @@ const Sidebar = React.forwardRef((
 ) => {
   const { isMobile, state, openMobile, setOpenMobile } = useSidebar()
 
-  if (collapsible === "none") {
-    return (
-      <div
-        className={cn(
-          "flex h-full w-[--sidebar-width] flex-col bg-sidebar text-sidebar-foreground",
-          className
-        )}
-        ref={ref}
-        {...props}>
-        {children}
-      </div>
-    );
-  }
+  // if (collapsible === "none") {
+  //   return (
+  //     <div
+  //       className={cn(
+  //         "flex h-full w-[--sidebar-width] flex-col bg-sidebar text-sidebar-foreground",
+  //         className
+  //       )}
+  //       ref={ref}
+  //       {...props}>
+  //       {children}
+  //     </div>
+  //   );
+  // }
 
-  if (isMobile) {
-    return (
-      <Sheet open={openMobile} onOpenChange={setOpenMobile} {...props}>
-        <SheetContent
-          data-sidebar="sidebar"
-          data-mobile="true"
-          className="w-[--sidebar-width] bg-sidebar p-0 text-sidebar-foreground [&>button]:hidden"
-          style={
-            {
-              "--sidebar-width": SIDEBAR_WIDTH_MOBILE
-            }
-          }
-          side={side}>
-          <SheetHeader className="sr-only">
-            <SheetTitle>Sidebar</SheetTitle>
-            <SheetDescription>Displays the mobile sidebar.</SheetDescription>
-          </SheetHeader>
-          <div className="flex h-full w-full flex-col">{children}</div>
-        </SheetContent>
-      </Sheet>
-    );
-  }
+  // if (isMobile) {
+  //   return (<>i</>
+  //     // <Sheet open={openMobile} onOpenChange={setOpenMobile} {...props}>
+  //     //   <SheetContent
+  //     //     data-sidebar="sidebar"
+  //     //     data-mobile="true"
+  //     //     className="w-[--sidebar-width] bg-sidebar p-0 text-sidebar-foreground [&>button]:hidden"
+  //     //     style={
+  //     //       {
+  //     //         "--sidebar-width": SIDEBAR_WIDTH_MOBILE
+  //     //       }
+  //     //     }
+  //     //     side={side}>
+  //     //     <SheetHeader className="sr-only">
+  //     //       <SheetTitle>Sidebar</SheetTitle>
+  //     //       <SheetDescription>Displays the mobile sidebar.</SheetDescription>
+  //     //     </SheetHeader>
+  //     //     <div className="flex h-full w-full flex-col">{children}</div>
+  //     //   </SheetContent>
+  //     // </Sheet>
+  //   );
+  // }
 
   return (
     <div
@@ -203,7 +203,7 @@ const Sidebar = React.forwardRef((
             : "right-0 group-data-[collapsible=offcanvas]:right-[calc(var(--sidebar-width)*-1)]",
           // Adjust the padding for floating and inset variants.
           variant === "flex" || variant === "inset"
-            ? "p-2 group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)_+_theme(spacing.4)_+2px)]"
+            ? "px-28 group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)_+_theme(spacing.4)_+2px)]"
             : "group-data-[collapsible=icon]:w-[--sidebar-width-icon] group-data-[side=left]:border-r group-data-[side=right]:border-l",
           className
         )}

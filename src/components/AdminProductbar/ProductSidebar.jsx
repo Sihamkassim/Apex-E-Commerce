@@ -642,7 +642,7 @@ export const ProductSidebar = () => {
         <SiteHeader />
         <div className="flex flex-1">
           <AppSidebar />
-          <SidebarInset className='px-28 '>
+          <SidebarInset className='px-20 '>
             <div className="flex  flex-col gap-4 p-4">
               <div className="grid auto-rows-min gap-4 md:grid-cols-3"></div>
               <div className="min-h-[100vh] flex-1 rounded-xl px-5 bg-muted/50 md:min-h-min" />
