@@ -18,33 +18,33 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart"
 const chartData = [
-  { month: "January", desktop: 186, mobile: 80 },
-  { month: "February", desktop: 305, mobile: 200 },
-  { month: "March", desktop: 237, mobile: 120 },
-  { month: "April", desktop: 73, mobile: 190 },
-  { month: "May", desktop: 209, mobile: 130 },
-  { month: "June", desktop: 214, mobile: 140 },
+  { month: "January", sales: 186, warehouse: 80 },
+  { month: "February", sales: 305, mobile: 200 },
+  { month: "March", sales: 237, warehouse: 120 },
+  { month: "April", sales: 73, warehouse: 190 },
+  { month: "May", sales: 209, warehouse: 130 },
+  { month: "June", sales: 214, warehouse: 140 },
 ]
 
 const chartConfig = {
   desktop: {
-    label: "Desktop",
+    label: "sales",
     color: "hsl(var(--chart-1))",
   },
   mobile: {
-    label: "Mobile",
+    label: "warehouse",
     color: "hsl(var(--chart-2))",
   },
 }
 
 export function BChart() {
   return (
-    <Card>
+    <Card className='p-6'>
       <CardHeader>
         <CardTitle>Inventory</CardTitle>
         <CardDescription>April - May 2024</CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className='py-14'>
         <ChartContainer config={chartConfig}>
           <BarChart accessibilityLayer data={chartData}>
             <CartesianGrid vertical={false} />
@@ -59,8 +59,8 @@ export function BChart() {
               cursor={false}
               content={<ChartTooltipContent indicator="dashed" />}
             />
-            <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
-            <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
+            <Bar dataKey="sales" fill="var(--color-desktop)" radius={4} />
+            <Bar dataKey="warehouse" fill="var(--color-mobile)" radius={4} />
           </BarChart>
         </ChartContainer>
       </CardContent>

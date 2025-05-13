@@ -59,11 +59,11 @@ export function PChart() {
 
   return (
     <Card className="flex flex-col">
-      <CardHeader className="items-center pb-0">
+      <CardHeader className="items-center p-6">
         <CardTitle>Traffic</CardTitle>
         <CardDescription>April - May 2025</CardDescription>
       </CardHeader>
-      <CardContent className="flex-1 pb-0">
+      <CardContent className="flex-1 p-6">
         <ChartContainer
           config={chartConfig}
           className="mx-auto aspect-square max-h-[250px]"

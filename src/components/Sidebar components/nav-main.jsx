@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { ChevronRight } from "lucide-react";
 
@@ -6,7 +6,7 @@ import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/components/ui/collapsible"
+} from "@/components/ui/collapsible";
 import {
   SidebarGroup,
   SidebarGroupLabel,
@@ -17,26 +17,20 @@ import {
   SidebarMenuSub,
   SidebarMenuSubButton,
   SidebarMenuSubItem,
-} from "@/components/ui/sidebar"
+} from "@/components/ui/sidebar";
 
-export function NavMain({
-  items,setIsSelected,isSelected
-}) {
-
-
-  
+export function NavMain({ items, setIsSelected, isSelected }) {
   return (
     <SidebarGroup>
-    
       <SidebarMenu>
-        {items.map((item,index) => (
+        {items.map((item, index) => (
           <Collapsible key={item.title} asChild defaultOpen={item.isActive}>
             <SidebarMenuItem>
               <SidebarMenuButton
                 asChild
-                className={isSelected == index ? "selected-button":'button'}
-                 tooltip={item.title}
-                 onClick={()=>setIsSelected(index)}
+                className={isSelected == index ? "selected-button" : "button"}
+                tooltip={item.title}
+                onClick={() => setIsSelected(index)}
               >
                 <a href={item.url}>
                   <item.icon />

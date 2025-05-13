@@ -36,14 +36,17 @@ export function LoginForm({ className, ...props }) {
     setSuccess(false);
 
     try {
-      const response = await fetch("https://ecommerce-backend-tqgh.onrender.com/api/v1/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "*/*",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "https://ecommerce-backend-tqgh.onrender.com/api/v1/auth/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "*/*",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       if (!response.ok) {
         const errorData = await response.json();
@@ -58,7 +61,7 @@ export function LoginForm({ className, ...props }) {
         setAuth({
           token: data.accessToken,
           refreshToken: data.refreshToken,
-          user: data.user
+          user: data.user,
         });
 
         // Redirect based on role
@@ -70,7 +73,6 @@ export function LoginForm({ className, ...props }) {
           }
         }, 1500);
       }
-
     } catch (err) {
       setError(err.message);
     } finally {
@@ -142,7 +144,11 @@ export function LoginForm({ className, ...props }) {
                 </span>
               </div>
 
-              <Button variant="outline" className="w-full justify-center" disabled>
+              <Button
+                variant="outline"
+                className="w-full justify-center"
+                disabled
+              >
                 <span>Login with Google (Coming soon)</span>
               </Button>
 
@@ -150,7 +156,7 @@ export function LoginForm({ className, ...props }) {
                 Don't have an account?{" "}
                 <Link
                   to="/register"
-                  className="inline-block mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300 text-black rounded transition"
+                  className="inline-block mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300 text-blue-700 rounded transition"
                 >
                   Sign Up
                 </Link>
@@ -176,7 +182,8 @@ export function LoginForm({ className, ...props }) {
         and{" "}
         <a href="#" className="underline underline-offset-4 hover:text-primary">
           Privacy Policy
-        </a>.
+        </a>
+        .
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ import {
   PieChart,
   Send,
   Settings2,
-  SquareTerminal
+  SquareTerminal,
 } from "lucide-react";
 import group from "../assets/icons/group.png";
 
@@ -38,6 +38,7 @@ const data = {
       url: "AdminPanel",
       icon: SquareTerminal,
       isActive: true,
+      view: "dashboard",
       // items: [
       //   {
       //     title: "History",
@@ -148,23 +149,24 @@ const data = {
       icon: Map,
     },
   ],
-}
-const handleclick=()=>{ className='bg-red-500'}
-export function AppSidebar({
-  ...props
-}) {
+};
+const handleclick = () => {
+  className = "bg-red-500";
+};
+export function AppSidebar({ ...props }) {
   const [isSelected, setIsSelected] = useState(0);
   const handleClick = (index) => {
     setActiveSecondary(index);
   };
-  
+
+
+
   return (
     <Sidebar
       className="top-[--header-height] !h-[calc(100svh-var(--header-height))]"
       {...props}
     >
       <SidebarHeader>
-        <NavUser user={data.user} />
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
@@ -184,18 +186,22 @@ export function AppSidebar({
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={data.navMain} isSelected={isSelected} setIsSelected={setIsSelected}/>
-        {/* <NavProjects projects={data.projects} />
+        <NavMain
+          items={data.navMain}
+          // isSelected={isSelected}
+          // setIsSelected={setIsSelected}
+        />
+        {/* <NavProjects projects={data.projects} /> */}
         <NavSecondary
           items={data.navSecondary}
           
           onClick={handleClick}
           className="mt-auto"
-        /> */}
+        /> 
       </SidebarContent>
-      {/* <SidebarFooter>
+      <SidebarFooter>
         <NavUser user={data.user} />
-      </SidebarFooter> */}
+      </SidebarFooter>
     </Sidebar>
   );
 }

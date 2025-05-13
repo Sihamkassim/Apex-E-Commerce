@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import useRelatedProducts from "../hooks/RelatedProduct";
 import useCartStore from "../store/useStore";
+import { useNavigate } from "react-router-dom";
+
 import {
   Dialog,
   DialogContent,
@@ -87,7 +89,7 @@ const ProductDetail = () => {
     if (!product) return;
     toast({ description: "Buy Now clicked. Implement functionality here." });
   };
-
+  const navigate = useNavigate();
   const relatedProducts = useRelatedProducts(product);
 
   if (isLoading) {
@@ -105,6 +107,7 @@ const ProductDetail = () => {
       </div>
     );
   }
+ 
 
   return (
     <>
@@ -113,9 +116,20 @@ const ProductDetail = () => {
           to="/products"
           className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-black hover:bg-gray-800 text-white rounded-lg transition text-sm sm:text-base"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-left">
-            <path d="m12 19-7-7 7-7"/>
-            <path d="M19 12H5"/>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="lucide lucide-arrow-left"
+          >
+            <path d="m12 19-7-7 7-7" />
+            <path d="M19 12H5" />
           </svg>
           Back to Products
         </Link>
@@ -135,11 +149,15 @@ const ProductDetail = () => {
         <div className="w-full md:w-1/2">
           <div className="flex justify-between items-start">
             <div>
-              <h1 className="text-xl sm:text-2xl font-bold mb-2">{product.name}</h1>
+              <h1 className="text-xl sm:text-2xl font-bold mb-2">
+                {product.name}
+              </h1>
               <div className="flex items-center gap-2 mb-2">
                 <span
                   className={`px-2 py-0.5 text-xs rounded ${
-                    product.stock > 0 ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"
+                    product.stock > 0
+                      ? "bg-green-100 text-green-800"
+                      : "bg-red-100 text-red-800"
                   }`}
                 >
                   {product.stock > 0 ? "In Stock" : "Out of Stock"}
@@ -148,7 +166,9 @@ const ProductDetail = () => {
                   SKU: {product._id?.substring(0, 8)}
                 </span>
               </div>
-              <p className="text-black font-bold text-2xl mb-4">${product.price}</p>
+              <p className="text-black font-bold text-2xl mb-4">
+                ${product.price}
+              </p>
             </div>
             <button
               className="h-10 w-10 rounded-full flex items-center justify-center border border-gray-200 hover:bg-gray-50 transition-colors"
@@ -161,11 +181,15 @@ const ProductDetail = () => {
 
           <div className="h-px bg-gray-200 my-4"></div>
 
-          <p className="text-gray-700 text-sm sm:text-base mb-6">{product.description}</p>
+          <p className="text-gray-700 text-sm sm:text-base mb-6">
+            {product.description}
+          </p>
 
           {/* Quantity Selector */}
           <div className="mb-6">
-            <label className="block text-sm font-medium text-gray-700 mb-2">Quantity</label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Quantity
+            </label>
             <div className="flex items-center">
               <button
                 className="h-8 w-8 flex items-center justify-center border border-gray-300 rounded-l-md bg-gray-50"
@@ -216,7 +240,7 @@ const ProductDetail = () => {
                     Review your order details and proceed to checkout.
                   </DialogDescription>
                 </DialogHeader>
-                
+
                 <div className="mt-4 space-y-4">
                   {/* Order Summary */}
                   <div className="bg-gray-50 p-4 rounded-lg">
@@ -244,30 +268,41 @@ const ProductDetail = () => {
                     <div className="h-px bg-gray-200 my-2"></div>
                     <div className="flex items-center justify-between font-medium">
                       <span>Total:</span>
-                      <span>${((product?.price * quantity) + 5).toFixed(2)}</span>
+                      <span>${(product?.price * quantity + 5).toFixed(2)}</span>
                     </div>
                   </div>
-                  
+
                   {/* Checkout Button */}
-                  <button
-                    className="w-full px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors"
-                    onClick={() => {
-                      // Add the product to cart
-                      for (let i = 0; i < quantity; i++) {
-                        addToCart(product);
-                      }
+                  {/* <Link to={`/LoginForm`}> */}
+                    <button
+                      className="w-full px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors"
+                      onClick={() => {
+                        // Add product(s) to cart
+                        for (let i = 0; i < quantity; i++) {
+                          addToCart(product);
+                        }
+
+                        // Close the dialog
+                        setIsDialogOpen(false);
+
+                        // Optional: Toast message
+                        toast({
+                          description: "Items added to cart successfully!",
+                        });
+
+                        // Navigate to checkout page
+                        navigate("/PaymentForm", {
+                          state: {
+                            total: (product.price * quantity + 5).toFixed(2), // include shipping
+                            productName: product.name,
+                          },
+                        });
                       
-                      // Close the dialog
-                      setIsDialogOpen(false);
-                      
-                      // Show success message
-                      toast({
-                        description: "Items added to cart successfully!",
-                      });
-                    }}
-                  >
-                    Proceed to Checkout
-                  </button>
+                      }}
+                    >
+                     <a href='/PaymentForm'>Proceed to Checkout</a>
+                     </button>
+                  {/* </Link> */}
                 </div>
               </DialogContent>
             </Dialog>
@@ -277,13 +312,17 @@ const ProductDetail = () => {
 
       {/* Customer Reviews */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6">
-        <h3 className="text-lg sm:text-xl font-semibold mb-3">Customer Reviews</h3>
+        <h3 className="text-lg sm:text-xl font-semibold mb-3">
+          Customer Reviews
+        </h3>
         {reviews.length > 0 ? (
           <div className="space-y-3">
             {reviews.map((review) => (
               <div key={review._id} className="border-b pb-3">
                 <div className="flex items-center">
-                  <span className="font-medium">{review.user?.name || "Anonymous"}</span>
+                  <span className="font-medium">
+                    {review.user?.name || "Anonymous"}
+                  </span>
                 </div>
                 <p className="text-gray-600 mt-1">{review.comment}</p>
               </div>
@@ -300,19 +339,22 @@ const ProductDetail = () => {
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
           {relatedProducts.length > 0 ? (
             relatedProducts.map((item) => (
-              <div key={item._id} className="bg-[#F7F7F7] rounded-xl shadow-md p-3 sm:p-4 hover:shadow-lg transition-all relative">
+              <div
+                key={item._id}
+                className="bg-[#F7F7F7] rounded-xl shadow-md p-3 sm:p-4 hover:shadow-lg transition-all relative"
+              >
                 <img
                   src={item.images}
                   alt={item.name}
                   className="w-full h-40 object-contain mb-3 rounded-md bg-white"
                 />
-                <h2 className="text-md font-semibold line-clamp-1">{item.name}</h2>
+                <h2 className="text-md font-semibold line-clamp-1">
+                  {item.name}
+                </h2>
                 <p className="text-gray-500 text-xs mb-2">
                   {item.stock} Left in stock
                 </p>
-                <p className="text-black font-bold mt-2">
-                  ${item.price}
-                </p>
+                <p className="text-black font-bold mt-2">${item.price}</p>
                 <Link to={`/products/${item.name}`}>
                   <button className="w-full mt-4 bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition">
                     View Details

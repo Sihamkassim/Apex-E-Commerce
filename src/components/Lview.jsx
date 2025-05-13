@@ -80,7 +80,7 @@ export function LastView() {
                   <img
                     src={product.images}
                     alt={product.name}
-                    className="w-full h-32 object-contain relative z-10"
+                    className="w-full h-32 object-cover rounded-xl relative z-10"
                   />
                 </div>
                 <div className="p-3 bg-white/80 backdrop-blur-sm border-t border-gray-100">
@@ -89,7 +89,7 @@ export function LastView() {
                   </h3>
                   <div className="flex justify-between items-center mt-1">
                     <p className="text-black font-bold text-sm">${product.price}</p>
-                    <span className="text-xs text-gray-500">{product.stock} left</span>
+                    <span className="text-xs text-gray-500">{product.stock} left in stock</span>
                   </div>
                 </div>
               </div>
