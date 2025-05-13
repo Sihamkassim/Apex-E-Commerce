@@ -7,7 +7,9 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
-
+const handleClick = () => {
+  bg-red-500
+};
 export function NavSecondary({
   items,
   ...props
@@ -15,10 +17,10 @@ export function NavSecondary({
   return (
     <SidebarGroup {...props}>
       <SidebarGroupContent>
-        <SidebarMenu>
+        <SidebarMenu className=''>
           {items.map((item) => (
             <SidebarMenuItem key={item.title}>
-              <SidebarMenuButton asChild size="sm">
+              <SidebarMenuButton onClick={handleClick} asChild size="sm">
                 <a href={item.url}>
                   <item.icon />
                   <span>{item.title}</span>

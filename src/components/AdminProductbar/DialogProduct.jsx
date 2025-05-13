@@ -1,4 +1,6 @@
 import { Button } from "@/components/ui/button"
+import { toast, Toaster } from "sonner"
+
 import {
   Dialog,
   DialogContent,
@@ -10,57 +12,140 @@ import {
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { useState } from "react";
 
 export function DialogDemo() {
+  const [form, setForm] = useState({
+    name: "",
+    price: "",
+    description: "",
+    stock: "",
+    limit: "",
+    category: "",
+    image: null,
+  });
+const handleAdd=()=>{toast("Product has been added");
+}
+  const handleChange = (e) => {
+    const { name, value, type, files } = e.target;
+    setForm({
+      ...form,
+      [name]: type === "file" ? files[0] : value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Form data:", form);
+
+  };
+  fetch('https://ecommerce-backend-tqgh.onrender.com/api/v1/products',{
+    method:'POST',
+    headers:{
+      'content-type':'application/json'
+    },
+    body:JSON.stringify(form)
+  })
+  .then(response=>console.log('success'))
+  .then(form => form.category)
+
   return (
     <Dialog>
       <DialogTrigger asChild>
         <Button variant="outline">Add Products</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[800px] h-[800px] ">
-        <DialogHeader className="max-auto">
-          <DialogTitle>Add Products</DialogTitle>
-          <DialogDescription>
-            Add your Products here. Click Add when you're done.
-          </DialogDescription>
-        </DialogHeader>
-          
-    <h2 class="text-2xl font-bold text-center text-gray-800">Add New Product</h2>
+        <DialogHeader className="max-auto"></DialogHeader>
+        <h2 className="text-2xl font-bold mb-6">Add Product</h2>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label className="block font-medium">Product Name</label>
+            <input
+              type="text"
+              name="name"
+              value={form.name}
+              onChange={handleChange}
+              className="w-full mt-1 p-2 border rounded-md"
+              required
+            />
+          </div>
 
-    <div>
-      <label for="productName" class="block mb-1 font-medium text-gray-700">Product Name</label>
-      <input type="text" id="productName" name="productName" required
-             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"/>
-    </div>
+          <div>
+            <label className="block font-medium">Price</label>
+            <input
+              type="number"
+              name="price"
+              value={form.price}
+              onChange={handleChange}
+              className="w-full mt-1 p-2 border rounded-md"
+              required
+            />
+          </div>
 
-    <div>
-      <label for="category" class="block mb-1 font-medium text-gray-700">Category</label>
-      <select  name="category" required
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-        <option value="">Select Category </option>
-        <option value="Electronics">Electronics</option>
-        <option value="Clothing">Clothing</option>
-        <option value="Books">Books</option>
-        <option value="Home">Automotive</option>
-      </select>
-    </div>
+          <div>
+            <label className="block font-medium">Description</label>
+            <textarea
+              name="description"
+              value={form.description}
+              onChange={handleChange}
+              className="w-full mt-1 p-2 border rounded-md"
+              rows="3"
+            />
+          </div>
 
-    <div>
-      <label for="stock" class="block mb-1 font-medium text-gray-700">Stock</label>
-      <input type="number"  name="stock" min="0" required
-             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"/>
-    </div>
+          <div>
+            <label className="block font-medium">Stock</label>
+            <input
+              type="number"
+              name="stock"
+              value={form.stock}
+              onChange={handleChange}
+              className="w-full mt-1 p-2 border rounded-md"
+            />
+          </div>
 
-    <div>
-      <label for="price" className="block mb-1 font-medium text-gray-700">Price ($)</label>
-      <input type="number"  name="price" step="0.01" min="0" required
-             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"/>
-    </div>
+          <div>
+            <label className="block font-medium">Limit</label>
+            <input
+              type="number"
+              name="limit"
+              value={form.limit}
+              onChange={handleChange}
+              className="w-full mt-1 p-2 border rounded-md"
+            />
+          </div>
 
-    
-        <DialogFooter>
-          <Button  type="submit">Add</Button>
-        </DialogFooter>
+          <div>
+            <label className="block font-medium">Category</label>
+            <input
+              type="text"
+              name="category"
+              value={form.category}
+              onChange={handleChange}
+              className="w-full mt-1 p-2 border rounded-md"
+              required
+            />
+          </div>
+
+          <div>
+            <label className="block font-medium">Product Image</label>
+            <input
+              type="file"
+              name="image"
+              onChange={handleChange}
+              accept="image/*"
+              className="w-full mt-1"
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="w-full bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700"
+            onClick={handleAdd}
+          >Add Products
+          < Toaster/>
+          </button>
+        </form>
       </DialogContent>
     </Dialog>
   );

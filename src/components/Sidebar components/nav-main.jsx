@@ -20,27 +20,34 @@ import {
 } from "@/components/ui/sidebar"
 
 export function NavMain({
-  items
+  items,setIsSelected,isSelected
 }) {
+
+
+  
   return (
     <SidebarGroup>
-      <SidebarGroupLabel>Activity</SidebarGroupLabel>
+    
       <SidebarMenu>
-        {items.map((item) => (
+        {items.map((item,index) => (
           <Collapsible key={item.title} asChild defaultOpen={item.isActive}>
             <SidebarMenuItem>
-              <SidebarMenuButton asChild tooltip={item.title}>
+              <SidebarMenuButton
+                asChild
+                className={isSelected == index ? "selected-button":'button'}
+                 tooltip={item.title}
+                 onClick={()=>setIsSelected(index)}
+              >
                 <a href={item.url}>
                   <item.icon />
-                  <span>{item.title}</span>
+                  {item.title}
                 </a>
               </SidebarMenuButton>
-              {item.items?.length ? (
+              {/* {item.items?.length ? (
                 <>
                   <CollapsibleTrigger asChild>
                     <SidebarMenuAction className="data-[state=open]:rotate-90">
                       <ChevronRight />
-                     
                     </SidebarMenuAction>
                   </CollapsibleTrigger>
                   <CollapsibleContent>
@@ -48,8 +55,8 @@ export function NavMain({
                       {item.items?.map((subItem) => (
                         <SidebarMenuSubItem key={subItem.title}>
                           <SidebarMenuSubButton asChild>
-                            <a href={subItem.url}>
-                              <span>{subItem.title}</span>
+                            <a href={subItem.url} onClick={handleClick}>
+                              {subItem.title}
                             </a>
                           </SidebarMenuSubButton>
                         </SidebarMenuSubItem>
@@ -57,7 +64,7 @@ export function NavMain({
                     </SidebarMenuSub>
                   </CollapsibleContent>
                 </>
-              ) : null}
+              ) : null} */}
             </SidebarMenuItem>
           </Collapsible>
         ))}
