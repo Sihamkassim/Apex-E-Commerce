@@ -1,16 +1,51 @@
-<<<<<<< HEAD
-# React + Vite
+# 🛍️ Apex E-Commerce
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive and modern e-commerce frontend built with **React**, featuring:
 
-Currently, two official plugins are available:
+- ✅ Product Pagination
+- ✅ Product Filtering
+- ✅ State Management using Zustand
+- ✅ Authentication UI (Login/Register)
+- ✅ Clean and minimal design
+- ✅ category fileration
+- ✅ swiper js
+- ✅ coursel functionality 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Features
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-=======
-# Apex-E-Commerce
->>>>>>> ddd57ff33391cad26cab628c1aeea13725f47160
+- **Product Listing**: View all products with pagination.
+- **Filtering**: Filter products by category or price.
+- **Zustand**: Lightweight and fast global state management.
+- **Login & Register Forms**: Basic UI ready for backend integration.
+- **Responsive Design**: Looks great on mobile, tablet, and desktop.
+- **Admin page ** : admin dashboard with charts and tables.
+- **admin product**: product adding features.
+
+---
+
+## 📦 Tech Stack
+
+- **React**
+- **Zustand**
+- **React Router**
+- **CSS / Tailwind CSS (if used)**
+
+---
+
+## 🛠️ Getting Started
+
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/Sihamkassim/Apex-E-Commerce.git
+   cd Apex-E-Commerce
+
+   ...............our pages...............
+       ![image](https://github.com/user-attachments/assets/bec6935c-bb31-4574-8c62-51c7e10e3d5a)
+![image](https://github.com/user-attachments/assets/4ec9257b-1668-47bd-89f7-4d233d31c3fe)
+![image](https://github.com/user-attachments/assets/d91b4f88-3dc5-4d9d-850b-40b4097f5413)
+![image](https://github.com/user-attachments/assets/5e9f970c-2dbb-40f6-8cc4-6e0398e4948a)
+
+
+
