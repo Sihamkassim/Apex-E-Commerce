@@ -1,18 +1,18 @@
-import { useToast } from "@/hooks/use-toast";
-import { Heart, ShoppingCart } from "lucide-react";
-import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import useRelatedProducts from "../hooks/RelatedProduct";
-import useCartStore from "../store/useStore";
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
-  DialogFooter,
+  DialogTrigger
 } from "@/components/ui/dialog";
+import { useToast } from "@/hooks/use-toast";
+import { Heart, ShoppingCart } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import photo from "../components/assets/product/iron.png";
+import useRelatedProducts from "../hooks/RelatedProduct";
+import useCartStore from "../store/useStore";
 
 const productsUrl = "https://ecommerce-backend-tqgh.onrender.com/api/v1/products";
 
@@ -85,7 +85,7 @@ const ProductDetail = () => {
 
   const handleBuyNow = () => {
     if (!product) return;
-    toast({ description: "Buy Now clicked. Implement functionality here." });
+    
   };
 
   const relatedProducts = useRelatedProducts(product);
@@ -125,7 +125,7 @@ const ProductDetail = () => {
         {/* Product Image */}
         <div className="w-full md:w-1/2">
           <img
-            src={product.images || "/fallback-image.jpg"} // ✅ Optional fallback
+            src={product.images || photo} 
             alt={product.name}
             className="w-full h-64 sm:h-96 object-contain mb-4 rounded-md bg-gray-100"
           />
@@ -239,35 +239,36 @@ const ProductDetail = () => {
                     </div>
                     <div className="flex items-center justify-between text-sm">
                       <span>Shipping:</span>
-                      <span>$5.00</span>
+                      <span>$2.00</span>
                     </div>
                     <div className="h-px bg-gray-200 my-2"></div>
                     <div className="flex items-center justify-between font-medium">
                       <span>Total:</span>
-                      <span>${((product?.price * quantity) + 5).toFixed(2)}</span>
+                      <span>${((product?.price * quantity) + 2).toFixed(2)}</span>
                     </div>
                   </div>
                   
                   {/* Checkout Button */}
+                   <Link to={`/products/checkout/${product._id}`}>
                   <button
                     className="w-full px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors"
                     onClick={() => {
-                      // Add the product to cart
+                      
                       for (let i = 0; i < quantity; i++) {
                         addToCart(product);
                       }
                       
-                      // Close the dialog
                       setIsDialogOpen(false);
                       
-                      // Show success message
+                      
                       toast({
-                        description: "Items added to cart successfully!",
+                        description: "Your order is being processed!",
                       });
                     }}
                   >
                     Proceed to Checkout
                   </button>
+                  </Link>
                 </div>
               </DialogContent>
             </Dialog>

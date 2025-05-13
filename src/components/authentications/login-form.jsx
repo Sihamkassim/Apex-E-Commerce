@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useToast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -16,7 +17,7 @@ export function LoginForm({ className, ...props }) {
   });
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [success, setSuccess] = useState(false);
+  const { toast } = useToast();
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -33,7 +34,6 @@ export function LoginForm({ className, ...props }) {
     e.preventDefault();
     setIsLoading(true);
     setError(null);
-    setSuccess(false);
 
     try {
       const response = await fetch("https://ecommerce-backend-tqgh.onrender.com/api/v1/auth/login", {
@@ -51,7 +51,13 @@ export function LoginForm({ className, ...props }) {
       }
 
       const { data } = await response.json();
-      setSuccess(true);
+      
+      // Show success toast
+      toast({
+        title: "Login Successful",
+        description: "Welcome back! You've been logged in successfully.",
+        variant: "success"
+      });
 
       // Store authentication data
       if (data.accessToken && data.refreshToken) {
@@ -93,12 +99,6 @@ export function LoginForm({ className, ...props }) {
 
               {error && (
                 <div className="text-red-500 text-center text-sm">{error}</div>
-              )}
-
-              {success && (
-                <div className="text-green-500 text-center text-sm">
-                  Login successful! Redirecting...
-                </div>
               )}
 
               <div className="grid gap-2">

@@ -2,9 +2,10 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useToast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import shoppings from "../assets/icons/shoppings.jpeg";
 const UrlRR = "https://ecommerce-backend-tqgh.onrender.com/api/v1/auth/register";
 
@@ -17,7 +18,8 @@ export function SignupForm({ className, ...props }) {
   });
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [success, setSuccess] = useState(false);
+  const { toast } = useToast();
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -44,11 +46,22 @@ export function SignupForm({ className, ...props }) {
 
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.message || ' failed to reg');
+        throw new Error(errorData.message || 'Failed to register');
       }
 
       const data = await response.json();
-      setSuccess(true);
+      
+      // Show success toast notification
+      toast({
+        title: "Registration Successful",
+        description: "Your account has been created successfully. You can now login.",
+        variant: "success"
+      });
+      
+      // Redirect to login page after 2 seconds
+      setTimeout(() => {
+        navigate('/login');
+      }, 2000);
       
       console.log('Registration successful:', data);
     } catch (err) {
@@ -73,12 +86,6 @@ export function SignupForm({ className, ...props }) {
 
               {error && (
                 <div className="text-red-500 text-center">{error}</div>
-              )}
-              
-              {success && (
-                <div className="text-green-500 text-center">
-                  Registration successful! You can now login.
-                </div>
               )}
 
               <div className="grid gap-2">
